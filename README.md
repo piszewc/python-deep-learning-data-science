@@ -6,12 +6,22 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 
 **Table of Contents**
 
-[TOC]
+*Piotr Szewc - Data Sience and Deep Learning portfolio
+*About(#About)
+*Deep Learning(#Deep Learning)
+*Python(#Python)
+*Courses & Certificates(#Courses & Certificates)
+*Research papers and books(#Research papers and books)
+*Other sources(#Other sources)
+*Contact(#Contact)
+*License(#License)
 
 ## Deep Learning
+
 ## Python
 
 ##Courses & Certificates
+
 - Programming Languages
 
 
@@ -27,8 +37,11 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 - Research Papers
 
 ##Other sources
+
 List of sources that were helpful in order to produce my repo content.
+
 ##Contact
+
 Feel free to contact me to discuss, comment any repo related questions.
 - E-mail: piotrszewc.pl@gmail.com
 - Twitter: [@PlSzewc](https://twitter.com/PlSzewc/)
@@ -40,10 +53,23 @@ This portfolio contains a variety of content, when some of them were created by 
 
 The content developed by Piotr Szewc is distributed uder the following license:
 
-	Copyright <2018> <Piotr Szewc>
+	Licensed under the Apache License, Version 2.0 (the "License");
 
-	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+	Copyright 2018 Piotr Szewc
 
-	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+	Permission is hereby granted, free of charge, to any person obtaining
+	a copy of this software and associated documentation files (the "Software"),
+	to deal in the Software without restriction, including without limitation
+	the rights to use, copy, modify, merge, publish, distribute, sublicense,
+	and/or sell copies of the Software, and to permit persons to whom the Software
+	is furnished to do so, subject to the following conditions:
 
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+	The above copyright notice and this permission notice shall be included 
+	in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+	INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+	DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
