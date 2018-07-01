@@ -1,3 +1,4 @@
+
 ## Piotr Szewc - Data Sience and Deep Learning portfolio
 
 ## About
@@ -6,21 +7,20 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 
 **Table of Contents**
 
-*Piotr Szewc - Data Sience and Deep Learning portfolio
-*About(#About)
-*Deep Learning(#Deep Learning)
-*Python(#Python)
-*Courses & Certificates(#Courses & Certificates)
-*Research papers and books(#Research papers and books)
-*Other sources(#Other sources)
-*Contact(#Contact)
-*License(#License)
+- [About](#About)
+- [Deep Learning](#Deep-Learning)
+- [Python](#Python)
+- [Courses & Certificates](#Courses-&-Certificates)
+- [Research papers and books](#Research-papers-and-books)
+- [Other sources](#Other-sources)
+- [Contact](#Contact)
+- [License](#License)
 
 ## Deep Learning
 
 ## Python
 
-##Courses & Certificates
+## Courses & Certificates
 
 - Programming Languages
 
@@ -31,16 +31,17 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 - Algorithms
 
 
-##Research papers and books
+## Research papers and books
 
 - Books
+
 - Research Papers
 
-##Other sources
+## Other sources
 
 List of sources that were helpful in order to produce my repo content.
 
-##Contact
+## Contact
 
 Feel free to contact me to discuss, comment any repo related questions.
 - E-mail: piotrszewc.pl@gmail.com
@@ -51,9 +52,7 @@ Feel free to contact me to discuss, comment any repo related questions.
 ## License
 This portfolio contains a variety of content, when some of them were created by Piotr Szewc, others are from third-parties. The third-party content is distributed uder the license provided by thouse parties.
 
-The content developed by Piotr Szewc is distributed uder the following license:
-
-	Licensed under the Apache License, Version 2.0 (the "License");
+The content developed by Piotr Szewc is distributed uder the following license (MIT):
 
 	Copyright 2018 Piotr Szewc
 
