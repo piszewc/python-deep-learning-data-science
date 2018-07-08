@@ -26,7 +26,7 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 | [iteration](python/iteration.ipynb)                          | Learn about interactions.                                    |
 | [functions](/python/functions.ipynb)                         | Learn about functions,  which allows to run organized, reusable code that is used to perform a single, related action. |
 | [strings](/python/strings.ipynb)                             | Lean about strings.                                          |
-| [conditionals and recursion](/python/conditionals and recursion.ipynb) | Learn mainly about IF statements,                            |
+| [conditionals and recursion](/python/conditionals_and_recursion.ipynb) | Learn mainly about IF statements,                            |
 | [fruitful_functions](python/fruitful_functions.ipynb)        | Part which focus on math operators.                          |
 
 
