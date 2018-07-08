@@ -20,6 +20,17 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 
 ## Python
 
+| Notebook                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [lists](python/list.ipynb)                                   | Learn how to create, edit, delete, lists.                    |
+| [iteration](python/iteration.ipynb)                          | Learn about interactions.                                    |
+| [functions](/python/functions.ipynb)                         | Learn about functions,  which allows to run organized, reusable code that is used to perform a single, related action. |
+| [strings](/python/strings.ipynb)                             | Lean about strings.                                          |
+| [conditionals and recursion](/python/conditionals and recursion.ipynb) | Learn mainly about IF statements,                            |
+| [fruitful_functions](python/fruitful_functions.ipynb)        | Part which focus on math operators.                          |
+
+
+
 ## Courses & Certificates
 
 - Programming Languages
@@ -55,17 +66,17 @@ This portfolio contains a variety of content, when some of them were created by 
 The content developed by Piotr Szewc is distributed uder the following license (MIT):
 
 	Copyright 2018 Piotr Szewc
-
+	
 	Permission is hereby granted, free of charge, to any person obtaining
 	a copy of this software and associated documentation files (the "Software"),
 	to deal in the Software without restriction, including without limitation
 	the rights to use, copy, modify, merge, publish, distribute, sublicense,
 	and/or sell copies of the Software, and to permit persons to whom the Software
 	is furnished to do so, subject to the following conditions:
-
+	
 	The above copyright notice and this permission notice shall be included 
 	in all copies or substantial portions of the Software.
-
+	
 	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
 	INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
 	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
