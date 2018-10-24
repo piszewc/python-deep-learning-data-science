@@ -33,22 +33,14 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 
 | Notebook                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Introduction-to-NumPy](NumPy/02.00-Introduction-to-NumPy
-) | Introduction to NumPy.                                       |
-| [Understanding-Data-Types](NumPy/02.01-Understanding-Data-Types
-) | Learn about data types in Python.                            |
-| [Understanding-Data-Types](NumPy/02.02-The-Basics-Of-NumPy-Arrays
-) | Learn about data types in Python.                            |
-| [Computation-on-arrays-ufuncs](NumPy/02.03-Computation-on-arrays-ufuncs
-) | Learn about computations on NumPy arrays: universal   functions. |
-| [Computation-on-arrays-aggregates](NumPy/02.04-Computation-on-arrays-aggregates
-) | Learn about aggregations: min, max, and everything in   between in NumPy. |
-| [Computation-on-arrays-broadcasting](NumPy/02.05-Computation-on-arrays-broadcasting
-) | Learn about computation on arrays: broadcasting in NumPy.    |
-| [Boolean-Arrays-and-Masks](NumPy/02.06-Boolean-Arrays-and-Masks
-) | Learn about comparisons, masks, and boolean logic in NumPy.  |
-| [Fancy-Indexing](NumPy/02.07-Fancy-Indexing
-)     | Learn about fancy indexing in NumPy.                         |
+| [Introduction-to-NumPy](NumPy/02.00-Introduction-to-NumPy) | Introduction to NumPy.                                       |
+| [Understanding-Data-Types](NumPy/02.01-Understanding-Data-Types) | Learn about data types in Python.                            |
+| [Understanding-Data-Types](NumPy/02.02-The-Basics-Of-NumPy-Arrays) | Learn about data types in Python.                            |
+| [Computation-on-arrays-ufuncs](NumPy/02.03-Computation-on-arrays-ufuncs) | Learn about computations on NumPy arrays: universal   functions. |
+| [Computation-on-arrays-aggregates](NumPy/02.04-Computation-on-arrays-aggregates) | Learn about aggregations: min, max, and everything in   between in NumPy. |
+| [Computation-on-arrays-broadcasting](NumPy/02.05-Computation-on-arrays-broadcasting) | Learn about computation on arrays: broadcasting in NumPy.    |
+| [Boolean-Arrays-and-Masks](NumPy/02.06-Boolean-Arrays-and-Masks) | Learn about comparisons, masks, and boolean logic in NumPy.  |
+| [Fancy-Indexing](NumPy/02.07-Fancy-Indexing)     | Learn about fancy indexing in NumPy.                         |
 | [Sorting](NumPy/02.08-Sorting)                   | Learn about sorting arrays in NumPy.                         |
 | [Structured-Data-NumPy](NumPy/02.09-Structured-Data-NumPy) | Learn about structured data: NumPy's structured arrays.      |
 
