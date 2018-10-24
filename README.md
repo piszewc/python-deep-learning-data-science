@@ -33,15 +33,15 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 
 | Notebook                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Introduction-to-NumPy](NumPy/02.00-Introduction-to-NumPy.ipynb.ipynb
+| [Introduction-to-NumPy](NumPy/02.00-Introduction-to-NumPy.ipynb
 ) | Introduction to NumPy.                                       |
-| [Understanding-Data-Types](NumPy/02.01-Understanding-Data-Types.ipynb.ipynb
+| [Understanding-Data-Types](NumPy/02.01-Understanding-Data-Types.ipynb
 ) | Learn about data types in Python.                            |
-| [Understanding-Data-Types](NumPy/02.02-The-Basics-Of-NumPy-Arrays.ipynb.ipynb
+| [Understanding-Data-Types](NumPy/02.02-The-Basics-Of-NumPy-Arrays.ipynb
 ) | Learn about data types in Python.                            |
-| [Computation-on-arrays-ufuncs](NumPy/02.03-Computation-on-arrays-ufuncs.ipynb.ipynb
+| [Computation-on-arrays-ufuncs](NumPy/02.03-Computation-on-arrays-ufuncs.ipynb
 ) | Learn about computations on NumPy arrays: universal   functions. |
-| [Computation-on-arrays-aggregates](NumPy/02.04-Computation-on-arrays-aggregates.ipynb.ipynb
+| [Computation-on-arrays-aggregates](NumPy/02.04-Computation-on-arrays-aggregates.ipynb
 ) | Learn about aggregations: min, max, and everything in   between in NumPy. |
 | [Computation-on-arrays-broadcasting](NumPy/02.05-Computation-on-arrays-broadcasting.ipynb.ipynb
 ) | Learn about computation on arrays: broadcasting in NumPy.    |
