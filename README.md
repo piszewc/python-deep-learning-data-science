@@ -29,7 +29,39 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 | [conditionals and recursion](/python/conditionals_and_recursion.ipynb) | Learn mainly about IF statements,                            |
 | [fruitful_functions](python/fruitful_functions.ipynb)        | Part which focus on math operators.                          |
 
+## NumPy
 
+| Notebook                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Introduction-to-NumPy](NumPy/Introduction-to-NumPy.ipynb)   | Introduction to NumPy.                                       |
+| [Understanding-Data-Types](NumPy/Understanding-Data-Types.ipynb) | Learn about data types in Python.                            |
+| [Understanding-Data-Types](NumPy/The-Basics-Of-NumPy-Arrays.ipynb
+) | Learn about data types in Python.                            |
+| [Computation-on-arrays-ufuncs](NumPy/Computation-on-arrays-ufuncs.ipynb
+) | Learn about computations on NumPy arrays: universal   functions. |
+| [Computation-on-arrays-aggregates](NumPy/Computation-on-arrays-aggregates.ipynb
+) | Learn about aggregations: min, max, and everything in   between in NumPy. |
+| [Computation-on-arrays-broadcasting](NumPy/Computation-on-arrays-broadcasting.ipynb
+) | Learn about computation on arrays: broadcasting in NumPy.    |
+| [Boolean-Arrays-and-Masks](NumPy/Boolean-Arrays-and-Masks.ipynb
+) | Learn about comparisons, masks, and boolean logic in NumPy.  |
+| [Fancy-Indexing](NumPy/Fancy-Indexing.ipynb
+)                 | Learn about fancy indexing in NumPy.                         |
+| [Sorting](NumPy/Sorting.ipynb
+)                               | Learn about sorting arrays in NumPy.                         |
+| [Structured-Data-NumPy](NumPy/Structured-Data-NumPy.ipynb
+)   | Learn about structured data: NumPy's structured arrays.      |
+
+## Pandas
+
+| Notebook | Description |
+| -------- | ----------- |
+|          |             |
+|          |             |
+|          |             |
+|          |             |
+|          |             |
+|          |             |
 
 ## Courses & Certificates
 
