@@ -66,36 +66,21 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 
 | Notebook                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Introduction-To-Matplotlib](Matplotlib/04.00-Introduction-To-Matplotlib.ipynb
-) | Introduction to Matplotlib.                                  |
-| [Simple-Line-Plots](Matplotlib/04.01-Simple-Line-Plots.ipynb
-) | Learn about simple line plots in Matplotlib.                 |
-| [Simple-Scatter-Plots](Matplotlib/04.02-Simple-Scatter-Plots.ipynb
-) | Learn about simple scatter plots in Matplotlib.              |
-| [Errorbars](Matplotlib/04.03-Errorbars.ipynb
-)                | Learn about visualizing errors in Matplotlib.                |
-| [Density-and-Contour-Plots](Matplotlib/04.04-Density-and-Contour-Plots.ipynb
-) | Learn about density and contour plots in Matplotlib.         |
-| [Histograms-and-Binnings](Matplotlib/04.05-Histograms-and-Binnings.ipynb
-) | Learn about histograms, binnings, and density in Matplotlib. |
-| [Customizing-Legends](Matplotlib/04.06-Customizing-Legends.ipynb
-) | Learn about customizing plot legends in Matplotlib.          |
-| [Customizing-Colorbars](Matplotlib/04.07-Customizing-Colorbars.ipynb
-) | Learn about customizing colorbars in Matplotlib.             |
-| [Multiple-Subplots](Matplotlib/04.08-Multiple-Subplots.ipynb
-) | Learn about multiple subplots in Matplotlib.                 |
-| [Text-and-Annotation](Matplotlib/04.09-Text-and-Annotation.ipynb
-) | Learn about text and annotation in Matplotlib.               |
-| [Customizing-Ticks](Matplotlib/04.10-Customizing-Ticks.ipynb
-) | Learn about customizing ticks in Matplotlib.                 |
-| [Settings-and-Stylesheets](Matplotlib/04.11-Settings-and-Stylesheets.ipynb
-) | Learn about customizing Matplotlib: configurations and   stylesheets. |
-| [Three-Dimensional-Plotting](Matplotlib/04.12-Three-Dimensional-Plotting.ipynb
-) | Learn about three-dimensional plotting in Matplotlib.        |
-| [Geographic-Data-With-Basemap](Matplotlib/04.13-Geographic-Data-With-Basemap.ipynb
-) | Learn about geographic data with basemap in Matplotlib.      |
-| [Visualization-With-Seaborn](Matplotlib/04.14-Visualization-With-Seaborn.ipynb
-) | Learn about visualization with Seaborn.                      |
+| [Introduction-To-Matplotlib](Matplotlib/04.00-Introduction-To-Matplotlib.ipynb) | Introduction to Matplotlib.                                  |
+| [Simple-Line-Plots](Matplotlib/04.01-Simple-Line-Plots.ipynb) | Learn about simple line plots in Matplotlib.                 |
+| [Simple-Scatter-Plots](Matplotlib/04.02-Simple-Scatter-Plots.ipynb) | Learn about simple scatter plots in Matplotlib.              |
+| [Errorbars](Matplotlib/04.03-Errorbars.ipynb)                | Learn about visualizing errors in Matplotlib.                |
+| [Density-and-Contour-Plots](Matplotlib/04.04-Density-and-Contour-Plots.ipynb) | Learn about density and contour plots in Matplotlib.         |
+| [Histograms-and-Binnings](Matplotlib/04.05-Histograms-and-Binnings.ipynb) | Learn about histograms, binnings, and density in Matplotlib. |
+| [Customizing-Legends](Matplotlib/04.06-Customizing-Legends.ipynb) | Learn about customizing plot legends in Matplotlib.          |
+| [Customizing-Colorbars](Matplotlib/04.07-Customizing-Colorbars.ipynb) | Learn about customizing colorbars in Matplotlib.             |
+| [Multiple-Subplots](Matplotlib/04.08-Multiple-Subplots.ipynb) | Learn about multiple subplots in Matplotlib.                 |
+| [Text-and-Annotation](Matplotlib/04.09-Text-and-Annotation.ipynb) | Learn about text and annotation in Matplotlib.               |
+| [Customizing-Ticks](Matplotlib/04.10-Customizing-Ticks.ipynb) | Learn about customizing ticks in Matplotlib.                 |
+| [Settings-and-Stylesheets](Matplotlib/04.11-Settings-and-Stylesheets.ipynb) | Learn about customizing Matplotlib: configurations and   stylesheets. |
+| [Three-Dimensional-Plotting](Matplotlib/04.12-Three-Dimensional-Plotting.ipynb) | Learn about three-dimensional plotting in Matplotlib.        |
+| [Geographic-Data-With-Basemap](Matplotlib/04.13-Geographic-Data-With-Basemap.ipynb) | Learn about geographic data with basemap in Matplotlib.      |
+| [Visualization-With-Seaborn](Matplotlib/04.14-Visualization-With-Seaborn.ipynb) | Learn about visualization with Seaborn.                      |
 
 ## Courses & Certificates
 
@@ -120,6 +105,15 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
   - The Elements of Statistical Learning - Stanford University
   - Python Data Science Handbook
 - Research Papers
+- Podcasts
+  - TwiML & AI
+  - TAG Data Talk
+  - Data Skeptic
+  - Linear Digressions
+  - Talking Machines
+  - O`Reilly Data Show
+  - Learning Machines
+  - Machine Learning Guide
 
 ## Other sources
 
