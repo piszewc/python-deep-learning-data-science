@@ -48,67 +48,39 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 
 | Notebook                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Introduction-to-Pandas](Pandas/03.00-Introduction-to-Pandas.ipynb.ipynb
-) | Introduction to Pandas.                                      |
-| [Introducing-Pandas-Objects](Pandas/03.01-Introducing-Pandas-Objects.ipynb.ipynb
-) | Learn about Pandas objects.                                  |
-| [Data Indexing and Selection](Pandas/03.02-Data-Indexing-and-Selection.ipynb.ipynb
-) | Learn about data indexing and selection in Pandas.           |
-| [Operations-in-Pandas](Pandas/03.03-Operations-in-Pandas.ipynb.ipynb
-) | Learn about operating on data in Pandas.                     |
-| [Missing-Values](Pandas/03.04-Missing-Values.ipynb.ipynb
-)    | Learn about handling missing data in Pandas.                 |
-| [Hierarchical-Indexing](Pandas/03.05-Hierarchical-Indexing.ipynb.ipynb
-) | Learn about hierarchical indexing in Pandas.                 |
-| [Concat-And-Append](Pandas/03.06-Concat-And-Append.ipynb.ipynb
-) | Learn about combining datasets: concat and append in Pandas. |
-| [Merge-and-Join](Pandas/03.07-Merge-and-Join.ipynb.ipynb
-)    | Learn about combining datasets: merge and join in Pandas.    |
-| [Aggregation-and-Grouping](Pandas/03.08-Aggregation-and-Grouping.ipynb.ipynb
-) | Learn about aggregation and grouping in Pandas.              |
-| [Pivot-Tables](Pandas/03.09-Pivot-Tables.ipynb.ipynb
-)        | Learn about pivot tables in Pandas.                          |
-| [Working-With-Strings](Pandas/03.10-Working-With-Strings.ipynb.ipynb
-) | Learn about vectorized string operations in Pandas.          |
-| [Working-with-Time-Series](Pandas/03.11-Working-with-Time-Series.ipynb.ipynb
-) | Learn about working with time series in pandas.              |
-| [Performance-Eval-and-Query](Pandas/03.12-Performance-Eval-and-Query.ipynb.ipynb
-) | Learn about high-performance Pandas: eval() and query() in   Pandas. |
+| [Introduction-to-Pandas](Pandas/03.00-Introduction-to-Pandas.ipynb) | Introduction to Pandas.                                      |
+| [Introducing-Pandas-Objects](Pandas/03.01-Introducing-Pandas-Objects.ipynb) | Learn about Pandas objects.                                  |
+| [Data Indexing and Selection](Pandas/03.02-Data-Indexing-and-Selection.ipynb) | Learn about data indexing and selection in Pandas.           |
+| [Operations-in-Pandas](Pandas/03.03-Operations-in-Pandas.ipynb) | Learn about operating on data in Pandas.                     |
+| [Missing-Values](Pandas/03.04-Missing-Values.ipynb)    | Learn about handling missing data in Pandas.                 |
+| [Hierarchical-Indexing](Pandas/03.05-Hierarchical-Indexing.ipynb) | Learn about hierarchical indexing in Pandas.                 |
+| [Concat-And-Append](Pandas/03.06-Concat-And-Append.ipynb) | Learn about combining datasets: concat and append in Pandas. |
+| [Merge-and-Join](Pandas/03.07-Merge-and-Join.ipynb)    | Learn about combining datasets: merge and join in Pandas.    |
+| [Aggregation-and-Grouping](Pandas/03.08-Aggregation-and-Grouping.ipynb) | Learn about aggregation and grouping in Pandas.              |
+| [Pivot-Tables](Pandas/03.09-Pivot-Tables.ipynb)        | Learn about pivot tables in Pandas.                          |
+| [Working-With-Strings](Pandas/03.10-Working-With-Strings.ipynb) | Learn about vectorized string operations in Pandas.          |
+| [Working-with-Time-Series](Pandas/03.11-Working-with-Time-Series.ipynb) | Learn about working with time series in pandas.              |
+| [Performance-Eval-and-Query](Pandas/03.12-Performance-Eval-and-Query.ipynb) | Learn about high-performance Pandas: eval() and query() in   Pandas. |
 
 ## Pandas
 
 | Notebook                                                     | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Introduction-To-Matplotlib](NumPy/04.00-Introduction-To-Matplotlib.ipynb.ipynb
-) | Introduction to Matplotlib.                                  |
-| [Simple-Line-Plots](NumPy/04.01-Simple-Line-Plots.ipynb.ipynb
-) | Learn about simple line plots in Matplotlib.                 |
-| [Simple-Scatter-Plots](NumPy/04.02-Simple-Scatter-Plots.ipynb.ipynb
-) | Learn about simple scatter plots in Matplotlib.              |
-| [Errorbars](NumPy/04.03-Errorbars.ipynb.ipynb
-)               | Learn about visualizing errors in Matplotlib.                |
-| [Density-and-Contour-Plots](NumPy/04.04-Density-and-Contour-Plots.ipynb.ipynb
-) | Learn about density and contour plots in Matplotlib.         |
-| [Histograms-and-Binnings](NumPy/04.05-Histograms-and-Binnings.ipynb.ipynb
-) | Learn about histograms, binnings, and density in Matplotlib. |
-| [Customizing-Legends](NumPy/04.06-Customizing-Legends.ipynb.ipynb
-) | Learn about customizing plot legends in Matplotlib.          |
-| [Customizing-Colorbars](NumPy/04.07-Customizing-Colorbars.ipynb.ipynb
-) | Learn about customizing colorbars in Matplotlib.             |
-| [Multiple-Subplots](NumPy/04.08-Multiple-Subplots.ipynb.ipynb
-) | Learn about multiple subplots in Matplotlib.                 |
-| [Text-and-Annotation](NumPy/04.09-Text-and-Annotation.ipynb.ipynb
-) | Learn about text and annotation in Matplotlib.               |
-| [Customizing-Ticks](NumPy/04.10-Customizing-Ticks.ipynb.ipynb
-) | Learn about customizing ticks in Matplotlib.                 |
-| [Settings-and-Stylesheets](NumPy/04.11-Settings-and-Stylesheets.ipynb.ipynb
-) | Learn about customizing Matplotlib: configurations and   stylesheets. |
-| [Three-Dimensional-Plotting](NumPy/04.12-Three-Dimensional-Plotting.ipynb.ipynb
-) | Learn about three-dimensional plotting in Matplotlib.        |
-| [Geographic-Data-With-Basemap](NumPy/04.13-Geographic-Data-With-Basemap.ipynb.ipynb
-) | Learn about geographic data with basemap in Matplotlib.      |
-| [Visualization-With-Seaborn](NumPy/04.14-Visualization-With-Seaborn.ipynb.ipynb
-) | Learn about visualization with Seaborn.                      |
+| [Introduction-To-Matplotlib](NumPy/04.00-Introduction-To-Matplotlib.ipynb) | Introduction to Matplotlib.                                  |
+| [Simple-Line-Plots](NumPy/04.01-Simple-Line-Plots.ipynb) | Learn about simple line plots in Matplotlib.                 |
+| [Simple-Scatter-Plots](NumPy/04.02-Simple-Scatter-Plots.ipynb) | Learn about simple scatter plots in Matplotlib.              |
+| [Errorbars](NumPy/04.03-Errorbars.ipynb)               | Learn about visualizing errors in Matplotlib.                |
+| [Density-and-Contour-Plots](NumPy/04.04-Density-and-Contour-Plots.ipynb) | Learn about density and contour plots in Matplotlib.         |
+| [Histograms-and-Binnings](NumPy/04.05-Histograms-and-Binnings.ipynb) | Learn about histograms, binnings, and density in Matplotlib. |
+| [Customizing-Legends](NumPy/04.06-Customizing-Legends.ipynb) | Learn about customizing plot legends in Matplotlib.          |
+| [Customizing-Colorbars](NumPy/04.07-Customizing-Colorbars.ipynb) | Learn about customizing colorbars in Matplotlib.             |
+| [Multiple-Subplots](NumPy/04.08-Multiple-Subplots.ipynb) | Learn about multiple subplots in Matplotlib.                 |
+| [Text-and-Annotation](NumPy/04.09-Text-and-Annotation.ipynb) | Learn about text and annotation in Matplotlib.               |
+| [Customizing-Ticks](NumPy/04.10-Customizing-Ticks.ipynb) | Learn about customizing ticks in Matplotlib.                 |
+| [Settings-and-Stylesheets](NumPy/04.11-Settings-and-Stylesheets.ipynb) | Learn about customizing Matplotlib: configurations and   stylesheets. |
+| [Three-Dimensional-Plotting](NumPy/04.12-Three-Dimensional-Plotting.ipynb) | Learn about three-dimensional plotting in Matplotlib.        |
+| [Geographic-Data-With-Basemap](NumPy/04.13-Geographic-Data-With-Basemap.ipynb) | Learn about geographic data with basemap in Matplotlib.      |
+| [Visualization-With-Seaborn](NumPy/04.14-Visualization-With-Seaborn.ipynb) | Learn about visualization with Seaborn.                      |
 
 ## Courses & Certificates
 
