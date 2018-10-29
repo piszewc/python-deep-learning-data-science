@@ -55,3 +55,80 @@ print("Number of times bob occurs is: "+str(bobs_counter))
 
 #Problem 3
 
+s = 'azcbobobegghakl'
+
+first_letter_number = 0
+last_letter_number = 1
+word_len = len(s)
+
+longest_substring_counter = 0
+longest_substring = ""
+
+current_substring_counter = 0
+current_substring = ""
+
+
+
+while last_letter_number <= word_len:
+    current_string = s[first_letter_number:last_letter_number]
+
+    if current_string == ''.join(sorted(current_string)):
+        last_letter_number = last_letter_number+1
+        current_substring_counter = current_substring_counter+1
+        current_substring = current_string
+        if current_substring_counter > longest_substring_counter:
+            longest_substring_counter = current_substring_counter
+            longest_substring = current_substring
+    else:
+        print("Finished abc time to move")
+        first_letter_number = first_letter_number+1
+        last_letter_number = first_letter_number+1
+        current_substring_counter=0
+        current_substring=""
+        current_string = s[first_letter_number:last_letter_number]
+
+        
+print("Longest substring in alphabetical order is: "+str(longest_substring))
+            
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
