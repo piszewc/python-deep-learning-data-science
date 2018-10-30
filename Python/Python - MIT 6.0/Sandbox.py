@@ -113,6 +113,27 @@ print("Remaining balance: "+ format(balance, '.2f'))
 
 
 
+#Week 2 - Problem 2
+
+balance = 4773
+annualInterestRate = 0.2
+
+lowest_payment = 0 
+month = 1
+prev_balance = balance
+
+while month <=12:
+    prev_balance = balance
+   
+    monthly_interest_rate = annualInterestRate/12.0
+    monthly_unpaid_balance = prev_balance - minimum_monthly_payment
+    updated_balance_each_month = monthly_unpaid_balance+(monthly_interest_rate*monthly_unpaid_balance)
+   
+    balance = updated_balance_each_month
+    month = month+1
+    
+print("Remaining balance: "+ format(balance, '.2f'))
+
 
 
 
