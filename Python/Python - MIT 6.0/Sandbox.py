@@ -90,8 +90,26 @@ while last_letter_number <= word_len:
         
 print("Longest substring in alphabetical order is: "+str(longest_substring))
             
-    
+#Week 2 - Problem 1
 
+balance = 484
+annualInterestRate = 0.2
+monthlyPaymentRate = 0.04
+
+
+month = 1
+prev_balance = balance
+
+while month <=12:
+    prev_balance = balance
+    monthly_interest_rate = annualInterestRate/12.0
+    minimum_monthly_payment = monthlyPaymentRate*prev_balance
+    monthly_unpaid_balance = prev_balance - minimum_monthly_payment
+    updated_balance_each_month = monthly_unpaid_balance+(monthly_interest_rate*monthly_unpaid_balance)
+    balance = updated_balance_each_month
+    month = month+1
+    
+print("Remaining balance: "+ format(balance, '.2f'))
 
 
 
