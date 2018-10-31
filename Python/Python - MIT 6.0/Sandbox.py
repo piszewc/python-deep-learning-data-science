@@ -119,58 +119,62 @@ print("Remaining balance: "+ format(balance, '.2f'))
 balance = 3329
 annualInterestRate = 0.2
 
-lowest_payment = 0 
+start_balance = balance
+previus_balance = 0
+
 month = 1
-prev_balance = balance
+multiplayer = 10
+base_dolar = 10
 
-while month <=12:
-    prev_balance = balance
-   
-    monthly_interest_rate = annualInterestRate/12.0
-    monthly_unpaid_balance = prev_balance - lowest_payment
-    updated_balance_each_month = monthly_unpaid_balance+(monthly_interest_rate*monthly_unpaid_balance)
-   
-    balance = updated_balance_each_month
-    month = month+1
-    
-lowest_payment = balance/12
+min_lowest_payment =  multiplayer*base_dolar
 
-print("Remaining balance: "+ format(balance, '.2f'))
+def reset_balance(balance, start_balance):
+    print(balance)
+    print(start_balance)
+    balance = start_balance
+    return balance
 
+def increase_multi(multiplayer):
+    print("multi")
+    return multiplayer+1
 
+def reset_month(month):
+    print("month")
+    month = 1
+    return month
 
+while month <= 13:
+    if balance > 0:
+        if month > 12:
+            print("finaly 12")
+            multiplayer = increase_multi(multiplayer)
+            month = reset_month(month)
+            balance = reset_balance(balance, start_balance)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        else:
+            previus_balance = balance
+            
+            monthly_interest_rate = annualInterestRate/12.0
+            monthly_unpaid_balance = previus_balance - min_lowest_payment
+            updated_balance_each_month = monthly_unpaid_balance+(monthly_interest_rate*monthly_unpaid_balance)
+            balance = updated_balance_each_month
+            
+            month = month+1
+            print(month)
+            
+            min_lowest_payment =  multiplayer*base_dolar
 
 
+    else:
+        print("Lowest Payment: "+ format(min_lowest_payment, '.2f'))
+        break
 
-
-
-
-
+print("Lowest Payment: "+ format(min_lowest_payment, '.2f'))
 
 
 
 
+
+
+
+ 
