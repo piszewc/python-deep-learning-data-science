@@ -116,40 +116,36 @@ print("Remaining balance: "+ format(balance, '.2f'))
 #Week 2 - Problem 2
 
 
-balance = 3329
+balance = 4773
 annualInterestRate = 0.2
 
 start_balance = balance
 previus_balance = 0
 
 month = 1
-multiplayer = 10
+multiplayer = 1
 base_dolar = 10
 
 min_lowest_payment =  multiplayer*base_dolar
 
 def reset_balance(balance, start_balance):
-    print(balance)
-    print(start_balance)
     balance = start_balance
     return balance
 
 def increase_multi(multiplayer):
-    print("multi")
     return multiplayer+1
 
 def reset_month(month):
-    print("month")
     month = 1
     return month
 
 while month <= 13:
     if balance > 0:
         if month > 12:
-            print("finaly 12")
             multiplayer = increase_multi(multiplayer)
             month = reset_month(month)
             balance = reset_balance(balance, start_balance)
+            min_lowest_payment =  multiplayer*base_dolar
 
         else:
             previus_balance = balance
@@ -160,16 +156,10 @@ while month <= 13:
             balance = updated_balance_each_month
             
             month = month+1
-            print(month)
-            
-            min_lowest_payment =  multiplayer*base_dolar
-
 
     else:
         print("Lowest Payment: "+ format(min_lowest_payment, '.2f'))
         break
-
-print("Lowest Payment: "+ format(min_lowest_payment, '.2f'))
 
 
 
