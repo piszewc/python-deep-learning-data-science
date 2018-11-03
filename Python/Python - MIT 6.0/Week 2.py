@@ -43,3 +43,9 @@ while text != "c":
     numGuesses += 1
 
 print("Game over. Your secret number was: " +str(ans))
+
+def evalQuadratic(a, b, c, x):
+    
+    return a*(x*x)+b*x+c
+
+evalQuadratic(1,2,3,4)
