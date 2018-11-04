@@ -51,3 +51,10 @@ def evalQuadratic(a, b, c, x):
 x = evalQuadratic(1,2,3,4)
 print(x)
 
+#Functions
+
+def printName(firstName, lastName. reverst):
+    if reverse:
+        print(lastName, firstName)
+    else:
+        print(firstName, lastName)
