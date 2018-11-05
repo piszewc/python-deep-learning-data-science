@@ -53,8 +53,3 @@ print(x)
 
 #Functions
 
-def printName(firstName, lastName. reverst):
-    if reverse:
-        print(lastName, firstName)
-    else:
-        print(firstName, lastName)
