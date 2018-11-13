@@ -81,4 +81,16 @@ plt.subplots(figsize=(6,6))
 sns.countplot(y=main_survey['Select the title most similar to your current role (or most recent title if retired): - Selected Choice'],order=main_survey['Select the title most similar to your current role (or most recent title if retired): - Selected Choice'].value_counts().index)
 plt.show()
 
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['What is the highest level of formal education that you have attained or plan to attain within the next 2 years?'],order=main_survey['What is the highest level of formal education that you have attained or plan to attain within the next 2 years?'].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['In what industry is your current employer/contract (or your most recent employer if retired)? - Selected Choice'],order=main_survey['In what industry is your current employer/contract (or your most recent employer if retired)? - Selected Choice'].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['Does your current employer incorporate machine learning methods into their business?'],order=main_survey['Does your current employer incorporate machine learning methods into their business?'].value_counts().index)
+plt.show()
+
 main_survey.columns
