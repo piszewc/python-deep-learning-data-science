@@ -36,8 +36,49 @@ sns.countplot(y=main_survey['What is your age (# years)?'],order=main_survey['Wh
 plt.show()
 
 
-plt.subplots(figsize=(8,6))
-sns.countplot(x=main_survey['What is the highest level of formal education that you have attained or plan to attain within the next 2 years?'],order=main_survey['What is the highest level of formal education that you have attained or plan to attain within the next 2 years?'].value_counts().index)
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['What is the highest level of formal education that you have attained or plan to attain within the next 2 years?'],order=main_survey['What is the highest level of formal education that you have attained or plan to attain within the next 2 years?'].value_counts().index)
+plt.show()
+
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey["How do you perceive the quality of online learning platforms and in-person bootcamps as compared to the quality of the education provided by traditional brick and mortar institutions? - In-person bootcamps:"],order=main_survey["How do you perceive the quality of online learning platforms and in-person bootcamps as compared to the quality of the education provided by traditional brick and mortar institutions? - In-person bootcamps:"].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['How do you perceive the quality of online learning platforms and in-person bootcamps as compared to the quality of the education provided by traditional brick and mortar institutions? - Online learning platforms and MOOCs:'],order=main_survey['How do you perceive the quality of online learning platforms and in-person bootcamps as compared to the quality of the education provided by traditional brick and mortar institutions? - Online learning platforms and MOOCs:'].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['On which online platform have you spent the most amount of time? - Selected Choice'],order=main_survey['On which online platform have you spent the most amount of time? - Selected Choice'].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['Do you consider yourself to be a data scientist?'],order=main_survey['Do you consider yourself to be a data scientist?'].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['What programming language would you recommend an aspiring data scientist to learn first? - Selected Choice'],order=main_survey['What programming language would you recommend an aspiring data scientist to learn first? - Selected Choice'].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey[],order=main_survey[].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['What specific programming language do you use most often? - Selected Choice'],order=main_survey['What specific programming language do you use most often? - Selected Choice'].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['What is the primary tool that you use at work or school to analyze data? (include text response) - Selected Choice'],order=main_survey['What is the primary tool that you use at work or school to analyze data? (include text response) - Selected Choice'].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['What is your current yearly compensation (approximate $USD)?'],order=main_survey['What is your current yearly compensation (approximate $USD)?'].value_counts().index)
+plt.show()
+
+plt.subplots(figsize=(6,6))
+sns.countplot(y=main_survey['Select the title most similar to your current role (or most recent title if retired): - Selected Choice'],order=main_survey['Select the title most similar to your current role (or most recent title if retired): - Selected Choice'].value_counts().index)
 plt.show()
 
 main_survey.columns
