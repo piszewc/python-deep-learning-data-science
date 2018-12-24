@@ -104,6 +104,7 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
   - Deep Learning
   - The Elements of Statistical Learning - Stanford University
   - Python Data Science Handbook
+  - Python for Data Analysis
 - Research Papers
 - Podcasts
   - TwiML & AI
