@@ -106,6 +106,11 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
   - Python Data Science Handbook
   - Python for Data Analysis
 - Research Papers
+  - http://www.arxiv-sanity.com/top
+  - https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-deep-learning
+  - https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-supervised-learning
+  - https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-unsupervised-learning
+  - https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-machine-learning-tips-and-tricks
 - Podcasts
   - TwiML & AI
   - TAG Data Talk
