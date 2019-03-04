@@ -2,7 +2,7 @@
 """
 Created on Thu Nov  1 12:06:13 2018
 
-@author: piotr
+@author: piotr2
 """
 
 iteration = 0
