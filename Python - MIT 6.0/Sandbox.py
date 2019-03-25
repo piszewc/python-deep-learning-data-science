@@ -6,7 +6,7 @@ Created on Fri Oct 26 21:48:36 2018
 """
 #Problem 1
 
-s = "allabamaeya"
+s = "allabamaeyas"
 vowels = ['a', 'e', 'i', 'o', 'u']
 
 list_s = list(s)
