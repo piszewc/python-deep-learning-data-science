@@ -102,7 +102,12 @@ class Message(object):
         Returns: a dictionary mapping a letter (string) to 
                  another letter (string). 
         '''
-        pass #delete this line and replace with your code here
+        import string
+        lowerCaseDictonary = list(string.ascii_lowercase)
+        lowerCaseDictonaryShift = lowerCaseDictonary
+        if 
+        
+        string.ascii_uppercase
 
     def apply_shift(self, shift):
         '''
