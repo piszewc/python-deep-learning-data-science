@@ -113,8 +113,7 @@ class Message(object):
         punctuation = list(string.punctuation)
         
         digits = list(string.digits)
-        
-        
+       
         
 
     
