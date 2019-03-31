@@ -105,10 +105,10 @@ class Message(object):
         import string
         
         lowerCaseDictonary = list(string.ascii_lowercase)
-        lowerCaseDictonaryShift = lowerCaseDictonary[1:]+ lowerCaseDictonary[:1]
+        lowerCaseDictonaryShift = lowerCaseDictonary[shift:]+ lowerCaseDictonary[:shift]
         
         upperCaseDictonary = list(string.ascii_uppercase)
-        upperCaseDictonaryShift = upperCaseDictonary[1:]+ upperCaseDictonary[:1]
+        upperCaseDictonaryShift = upperCaseDictonary[shift:]+ upperCaseDictonary[:shift]
 
         punctuation = list(string.punctuation)
         
