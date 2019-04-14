@@ -71,9 +71,23 @@ def getWordScore(word, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    # TO DO ... <-- Remove this comment when you code this function
-
-
+    
+    len_word = len(word)
+    word_score = 0 
+    
+    for i in word:
+        if i in SCRABBLE_LETTER_VALUES:
+            word_score = word_score+SCRABBLE_LETTER_VALUES[i]
+            
+    final_score = word_score*len_word
+    
+    bonus = 0
+    if len(word) == n:
+        bonus = 50
+        
+    final_score = final_score+bonus
+    return(final_score)
+    
 
 #
 # Problem #2: Make sure you understand how this function works and what it does!
@@ -142,9 +156,12 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
-
-
+    
+    for i in word:
+        current_val = hand.get(i,"")
+        current_val = current_val-1
+        hand.update({i:current_val})
+    return hand
 
 #
 # Problem #3: Test word validity
@@ -160,8 +177,31 @@ def isValidWord(word, hand, wordList):
     hand: dictionary (string -> int)
     wordList: list of lowercase strings
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    #check if word is on word list
+    
+    isOnWordList = False
+    
+    for i in wordList:
+        if i == word:
+            isOnWordList = True
+    
+    
+    return isOnWordList
+    word = "Hello"
+    hand = {"h":0}
+    
+    letter_check = set(list(word)) <= set(hand.keys())
 
+    for letter in word:
+        if letter in hand.keys():
+            hand[letter] -= 1
+ 
+    value_check = all(i >= 0 for i in hand.values())
+    
+    if isOnWordList == True and letter_check == True and value_check == True:
+        return True
+    else:
+        return False
 
 #
 # Problem #4: Playing a hand
