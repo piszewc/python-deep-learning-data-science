@@ -59,3 +59,52 @@ def structures_counter(emails):
         structure = get_email_structure(email)
         structures[structure] += 1
     return structures
+
+
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+X = np.array(ham_emails + spam_emails)
+y = np.array([0] * len(ham_emails) + [1] * len(spam_emails))
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+import re
+from html import unescape
+
+def html_to_plain_text(html):
+    text = re.sub('<head.*?>.*?</head>', '', html, flags=re.M | re.S | re.I)
+    text = re.sub('<a\s.*?>', ' HYPERLINK ', text, flags=re.M | re.S | re.I)
+    text = re.sub('<.*?>', '', text, flags=re.M | re.S)
+    text = re.sub(r'(\s*\n)+', '\n', text, flags=re.M | re.S)
+    return unescape(text)
+
+
+html_spam_emails = [email for email in X_train[y_train==1]
+                    if get_email_structure(email) == "text/html"]
+sample_html_spam = html_spam_emails[7]
+
+print(sample_html_spam.get_content().strip()[:1000], "...")
+
+
+
+print(html_to_plain_text(sample_html_spam.get_content())[:1000], "...")
+
+def email_to_text(email):
+    html = None
+    for part in email.walk():
+        ctype = part.get_content_type()
+        if not ctype in ("text/plain", "text/html"):
+            continue
+        try:
+            content = part.get_content()
+        except: # in case of encoding issues
+            content = str(part.get_payload())
+        if ctype == "text/plain":
+            return content
+        else:
+            html = content
+    if html:
+        return html_to_plain_text(html)
+    
+print(email_to_text(sample_html_spam)[:100], "...")
