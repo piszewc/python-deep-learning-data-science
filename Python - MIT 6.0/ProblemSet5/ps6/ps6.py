@@ -103,20 +103,30 @@ class Message(object):
                  another letter (string). 
         '''
         import string
-        
-        lowerCaseDictonary = list(string.ascii_lowercase)
-        lowerCaseDictonaryShift = lowerCaseDictonary[shift:]+ lowerCaseDictonary[:shift]
-        
-        upperCaseDictonary = list(string.ascii_uppercase)
-        upperCaseDictonaryShift = upperCaseDictonary[shift:]+ upperCaseDictonary[:shift]
+                
+        #check if its lower case
+        lower_case = string.ascii_lowercase
+        lower_case_shift = lower_case[shift:]+lower_case[:shift]
 
-        punctuation = list(string.punctuation)
+        #check if its upper case
+        upper_case = string.ascii_uppercase
+        upper_case_shift = upper_case[shift:]+upper_case[:shift]
         
-        digits = list(string.digits)
-       
+        number_of_letters = len(lower_case)
         
+        new_dictionary = {}
+        
+        for i in range(0,number_of_letters):
+            create_dict = {lower_case[i]:lower_case_shift[i]}
+            new_dictionary.update(create_dict)
+            
+        for i in range(0,number_of_letters):
+            create_dict = {upper_case[i]:upper_case_shift[i]}
+            new_dictionary.update(create_dict)
+            
+        return new_dictionary
 
-    
+        #for others
     def apply_shift(self, shift):
         '''
         Applies the Caesar Cipher to self.message_text with the input shift.
