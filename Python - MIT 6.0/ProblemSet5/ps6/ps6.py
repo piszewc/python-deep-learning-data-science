@@ -67,7 +67,7 @@ class Message(object):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words
         '''
-        self.message_text = text
+        self.message_text = "Hello"
         self.valid_words = load_words(WORDLIST_FILENAME)
 
     ### DO NOT MODIFY THIS METHOD ###
@@ -139,13 +139,18 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        shifted_directory = Message.build_shift_dict(self, 5)
         
-        text_to_shift = self.message_text
+        shifted_text = ""
+        new_dictionary = self.build_shift_dict(shift)
         
+        for i in self.message_text:
+            if i in string.ascii_letters:
+                i = new_dictionary[i]
+            shifted_text += i
+            
+        return shifted_text
         
-        return "Hello"
-
+    
 class PlaintextMessage(Message):
     def __init__(self, text, shift):
         '''
