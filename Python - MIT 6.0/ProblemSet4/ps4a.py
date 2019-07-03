@@ -122,7 +122,7 @@ def dealHand(n):
     letters and the values are the number of times the
     particular letter is repeated in that hand.
 
-    n: int >= 0
+    n: int >= 00
     returns: dictionary (string -> int)
     """
     hand={}
