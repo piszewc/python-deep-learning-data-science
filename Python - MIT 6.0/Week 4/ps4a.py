@@ -71,8 +71,18 @@ def getWordScore(word, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    # TO DO ... <-- Remove this comment when you code this function
-
+    score = 0 
+    
+    for w in word:
+        score = score+SCRABBLE_LETTER_VALUES[w]
+    
+    score = score * len(word)
+    
+    #Add Bonus
+    if len(word) == n:
+        score=score+50
+        
+    return score
 
 
 #
@@ -141,8 +151,15 @@ def updateHand(hand, word):
     word: string
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
-    """
-    # TO DO ... <-- Remove this comment when you code this function
+    """    
+    new_hand = hand.copy()
+    
+    for i in word:
+        current_val = new_hand.get(i,"")
+        current_val = current_val-1
+        new_hand.update({i:current_val})
+        
+    return new_hand
 
 
 
@@ -160,7 +177,28 @@ def isValidWord(word, hand, wordList):
     hand: dictionary (string -> int)
     wordList: list of lowercase strings
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    isOnWordList = False
+    
+    for i in wordList:
+        if i == word:
+            isOnWordList = True
+    
+    
+    return isOnWordList
+    
+    letter_check = set(list(word)) <= set(hand.keys())
+
+    for letter in word:
+        if letter in hand.keys():
+            hand[letter] -= 1
+ 
+    value_check = all(i >= 0 for i in hand.values())
+    
+    if isOnWordList == True and letter_check == True and value_check == True:
+        return True
+    else:
+        return False
+
 
 
 #
@@ -174,7 +212,12 @@ def calculateHandlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
+    hand_len = 0
+    for i in hand:
+        hand_len = hand_len + hand[i]
+    return hand_len
+
+
 
 
 
