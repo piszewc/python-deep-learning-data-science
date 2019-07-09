@@ -178,28 +178,32 @@ def isValidWord(word, hand, wordList):
     wordList: list of lowercase strings
     """
     isOnWordList = False
+    isWordinHand = False
+    validation_status = False
     
+    word_dict = getFrequencyDict(word)
+
     for i in wordList:
         if i == word:
             isOnWordList = True
     
+    for i in word_dict.keys():
+        if i in hand:
+            if word_dict.get(i) <= hand.get(i):
+                isWordinHand = True
+            else:
+                isWordinHand = False
+                break
+        else:
+            isWordinHand = False
+            break
     
-    return isOnWordList
-    
-    letter_check = set(list(word)) <= set(hand.keys())
-
-    for letter in word:
-        if letter in hand.keys():
-            hand[letter] -= 1
- 
-    value_check = all(i >= 0 for i in hand.values())
-    
-    if isOnWordList == True and letter_check == True and value_check == True:
-        return True
+    if isOnWordList == True and isWordinHand == True:
+        validation_status = True
     else:
-        return False
+        validation_status = False
 
-
+    return validation_status 
 
 #
 # Problem #4: Playing a hand
