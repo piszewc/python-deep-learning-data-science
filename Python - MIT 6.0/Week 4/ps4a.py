@@ -248,27 +248,28 @@ def playHand(hand, wordList, n):
       
     """
     # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
-    # Keep track of the total score
+    total_score = 0 
     
     # As long as there are still letters left in the hand:
-    
+    if hand > 0:
         # Display the hand
-        
+        displayHand(hand)
         # Ask user for input
-        
+        user_word = input("Please enter word")
         # If the input is a single period:
-        
+        if user_word = ".":
+            break
             # End the game (break out of the loop)
 
-            
-        # Otherwise (the input is not a single period):
         
+        # Otherwise (the input is not a single period):
+        else:
             # If the word is not valid:
-            
+            if isValidWord(word, hand, wordList) == False:
                 # Reject invalid word (print a message followed by a blank line)
-
+                print("Your word is not valid, please enter correct word\n")
             # Otherwise (the word is valid):
-
+                
                 # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
                 
                 # Update the hand 
