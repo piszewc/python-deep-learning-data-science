@@ -103,8 +103,6 @@ def displayHand(hand):
     for letter in hand.keys():
         for j in range(hand[letter]):
              print(letter,end=" ")       # print all on the same line
-    print()                             # print an empty line
-
 #
 # Problem #2: Make sure you understand how this function works and what it does!
 #
@@ -247,20 +245,17 @@ def playHand(hand, wordList, n):
       n: integer (HAND_SIZE; i.e., hand size required for additional points)
       
     """
-    # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
     total_score = 0 
     
-    hand_len = calculateHandlen(hand)
     # As long as there are still letters left in the hand:
-    while hand_len > 0:
+    while calculateHandlen(hand) > 0:
         # Display the hand
-        displayHand(hand)
+        print('Current Hand:', end=' '); displayHand(hand)    
         # Ask user for input
-        word = input("Please enter word")
+        word = input('Enter word, or a "." to indicate that you are finished: ')
         # If the input is a single period:
         if word == ".":
             break
-        
             # End the game (break out of the loop)
 
         
@@ -273,13 +268,14 @@ def playHand(hand, wordList, n):
             # Otherwise (the word is valid):
             else:
                 # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
-                print("you received",getWordScore(word, n))
                 total_score+=getWordScore(word, n)
+                print('"' + str(word) + '" earned',getWordScore(word, n)," points. Total: ",total_score,"points")
+                print()
                 # Update the hand 
-                updateHand(hand, word)
+                hand = updateHand(hand, word)
 
     # Game is over (user entered a '.' or ran out of letters), so tell user the total score
-    
+    print("Goodbye! Total score:", total_score ,"points.  ")
 
 #
 # Problem #5: Playing a game
