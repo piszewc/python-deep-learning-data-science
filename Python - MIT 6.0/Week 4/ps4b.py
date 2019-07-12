@@ -124,8 +124,20 @@ def playGame(wordList):
 
     wordList: list (string)
     """
-    # TO DO... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.") # <-- Remove this when you code this function
+    
+    
+    while True:
+        
+        user_input = input("Please input")
+        
+        if user_input == "n":
+            break
+        elif user_input == "r":
+            break
+        elif user_input == "e":
+            break
+        else:
+            print("Please enter correct letter")
 
         
 #
