@@ -89,6 +89,7 @@ class Message(object):
         return self.valid_words[:]
         
     def build_shift_dict(self, shift):
+        import string
         '''
         Creates a dictionary that can be used to apply a cipher to a letter.
         The dictionary maps every uppercase and lowercase letter to a
@@ -102,7 +103,20 @@ class Message(object):
         Returns: a dictionary mapping a letter (string) to 
                  another letter (string). 
         '''
-        pass #delete this line and replace with your code here
+        shift = 2
+        lower_case_letters = string.ascii_lowercase
+        upper_case_letters = string.ascii_uppercase
+        
+        after_shift_lower_case = lower_case_letters[shift:]+lower_case_letters[:shift]
+        after_shift_upper_case = upper_case_letters[shift:]+upper_case_letters[:shift]
+        
+        shift_dict = {}
+        
+        for i in range(0,26):
+            shift_dict.update({lower_case_letters[i]:after_shift_lower_case[i]})
+            shift_dict.update({upper_case_letters[i]:after_shift_upper_case[i]})
+        
+        return shift_dict
 
     def apply_shift(self, shift):
         '''
@@ -116,7 +130,7 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        pass #delete this line and replace with your code here
+        build_shift_dict(self, shift)
 
 class PlaintextMessage(Message):
     def __init__(self, text, shift):
