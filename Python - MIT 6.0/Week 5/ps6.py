@@ -103,7 +103,6 @@ class Message(object):
         Returns: a dictionary mapping a letter (string) to 
                  another letter (string). 
         '''
-        shift = 2
         lower_case_letters = string.ascii_lowercase
         upper_case_letters = string.ascii_uppercase
         
@@ -130,7 +129,16 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        build_shift_dict(self, shift)
+        shifted_dict = self.build_shift_dict(shift)
+        new_message_text = ""
+        
+        for i in self.message_text:
+            if i in string.ascii_letters:
+                new_message_text += shifted_dict.get(i)
+            else:
+                new_message_text += i
+                
+        return new_message_text
 
 class PlaintextMessage(Message):
     def __init__(self, text, shift):
