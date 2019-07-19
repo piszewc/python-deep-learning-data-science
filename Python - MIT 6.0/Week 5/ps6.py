@@ -216,7 +216,8 @@ class CiphertextMessage(Message):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words)
         '''
-        pass #delete this line and replace with your code here
+        self.message_text = text
+        self.valid_words = load_words(WORDLIST_FILENAME)
 
     def decrypt_message(self):
         '''
@@ -234,7 +235,30 @@ class CiphertextMessage(Message):
         Returns: a tuple of the best shift value used to decrypt the message
         and the decrypted message text using that shift value
         '''
-        pass #delete this line and replace with your code here
+        top_decrypter_value = 0
+        decrypted_text = ""
+        
+        list_message_text = self.message_text.split(" ")
+        
+        for message in list_message_text:
+            i = 0
+            while i < 26:
+                decription = Message.apply_shift(message, 26-i)
+                print(decription)
+                
+                validation_passed = 0
+                
+                for validation in self.valid_words:
+                    if decription == validation:
+                        validation_passed+=1
+                
+                #It this best validation?
+                if validation_passed > top_decrypter_value:
+                    top_decrypter_value = 26-i
+                i+=1
+        decrypted_text = Message.apply_shift(self, top_decrypter_value)
+        
+        return (top_decrypter_value, decrypted_text)
 
 #Example test case (PlaintextMessage)
 plaintext = PlaintextMessage('hello', 2)
@@ -242,6 +266,6 @@ print('Expected Output: jgnnq')
 print('Actual Output:', plaintext.get_message_text_encrypted())
     
 #Example test case (CiphertextMessage)
-ciphertext = CiphertextMessage('jgnnq')
+ciphertext = CiphertextMessage('jgnnq jgnnq')
 print('Expected Output:', (24, 'hello'))
 print('Actual Output:', ciphertext.decrypt_message())
