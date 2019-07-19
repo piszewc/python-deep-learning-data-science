@@ -161,8 +161,8 @@ class PlaintextMessage(Message):
         self.message_text = text
         self.valid_words = load_words(WORDLIST_FILENAME)
         self.shift = shift
-        self.encrypting_dict = .build_shift_dict(shift)
-        self.message_text_encrypted = .apply_shift(shift)
+        self.encrypting_dict = Message.build_shift_dict(self, shift)
+        self.message_text_encrypted = Message.apply_shift(self, shift)
 
     def get_shift(self):
         '''
@@ -200,8 +200,8 @@ class PlaintextMessage(Message):
         Returns: nothing
         '''
         self.shift = shift
-        self.encrypting_dict = .build_shift_dict(shift)
-        self.message_text_encrypted = .apply_shift(shift)
+        self.encrypting_dict =  Message.build_shift_dict(self, shift)
+        self.message_text_encrypted =  Message.apply_shift(self, shift)
         
 
 
