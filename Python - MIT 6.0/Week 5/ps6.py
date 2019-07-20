@@ -236,29 +236,25 @@ class CiphertextMessage(Message):
         and the decrypted message text using that shift value
         '''
         top_decrypter_value = 0
-        decrypted_text = ""
+        best_decrypter = 0
         
-        list_message_text = self.message_text.split(" ")
-        
-        for message in list_message_text:
-            i = 0
-            while i < 26:
-                decription = Message.apply_shift(message, 26-i)
-                print(decription)
+        s = 0
+        while s <= 26:
+            decrypted_text = self.apply_shift(26-s).split(" ")
+            
+            words_decrypted = 0
+            
+            for i in decrypted_text:
+                if is_word(self.valid_words, i)==True:
+                    words_decrypted+=1
+            
+            if words_decrypted > top_decrypter_value:
+                top_decrypter_value = words_decrypted
+                best_decrypter = 26-s
                 
-                validation_passed = 0
-                
-                for validation in self.valid_words:
-                    if decription == validation:
-                        validation_passed+=1
-                
-                #It this best validation?
-                if validation_passed > top_decrypter_value:
-                    top_decrypter_value = 26-i
-                i+=1
-        decrypted_text = Message.apply_shift(self, top_decrypter_value)
-        
-        return (top_decrypter_value, decrypted_text)
+            s+=1
+    
+        return (best_decrypter, self.apply_shift(best_decrypter))
 
 #Example test case (PlaintextMessage)
 plaintext = PlaintextMessage('hello', 2)
