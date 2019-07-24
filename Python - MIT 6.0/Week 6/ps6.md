@@ -182,3 +182,4 @@ def swapSort(L):
 Does this function sort the list in increasing or decreasing order? (items at lower indices being smaller means it sorts in increasing order, and vice versa)
 
 **Increasing correct**  
+
