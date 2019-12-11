@@ -1,5 +1,3 @@
-# Videos Notes
-
 # Module 1 
 
 Getting Started with Transact-SQL
