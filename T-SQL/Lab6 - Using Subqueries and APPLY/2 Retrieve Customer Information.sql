@@ -1,14 +1,15 @@
 -- Retrieve customer information for all sales orders
-SELECT SOH.SalesOrderID, SOH.CustomerID, CI.FirstName, CI.LastName, SOH.TotalDue
-FROM SalesLT.SalesOrderHeader AS SOH
-CROSS APPLY dbo.ufnGetCustomerInformation(SOH.CustomerID) AS CI
-ORDER BY SOH.SalesOrderID;
+SELECT  soh.SalesOrderID, soh.CustomerID, ci.FirstName, ci.LastName, soh.TotalDue
+FROM SalesLT.SalesOrderHeader as soh
+	CROSS APPLY dbo.ufnGetCustomerInformation(soh.CustomerID) AS ci
+ORDER BY soh.CustomerID
 
 
--- Retrieve customer address information
-SELECT CA.CustomerID, CI.FirstName, CI.LastName, A.AddressLine1, A.City
-FROM SalesLT.Address AS A
-JOIN SalesLT.CustomerAddress AS CA
-ON A.AddressID = CA.AddressID
-CROSS APPLY dbo.ufnGetCustomerInformation(CA.CustomerID) AS CI
-ORDER BY CA.CustomerID;
+-- Retrieve customer information for all sales orders
+
+SELECT ca.CustomerID, ci.FirstName, ci.LastName, a.AddressLine1, a.City
+FROM SalesLT.Address as a
+JOIN SalesLT.CustomerAddress as ca
+ON a.AddressID = ca.AddressID
+	CROSS APPLY dbo.ufnGetCustomerInformation(ca.CustomerID) AS ci
+ORDER BY ca.CustomerID
