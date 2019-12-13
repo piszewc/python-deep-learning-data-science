@@ -1,9 +1,9 @@
 -- Retrieve product model descriptions
-SELECT P.ProductID, P.Name AS ProductName, PM.Name AS ProductModel, PM.Summary
-FROM SalesLT.Product AS P
-JOIN SalesLT.vProductModelCatalogDescription AS PM
-ON P.ProductModelID = PM.ProductModelID
-ORDER BY ProductID;
+
+SELECT p.ProductID, p.Name as Product_Name, vpm.Name as Product_Model_Name, vpm.Summary
+FROM SalesLT.Product as p
+JOIN SalesLT.vProductModelCatalogDescription as vpm ON p.ProductModelID = vpm.ProductModelID
+ORDER BY p.ProductID
 
 
 -- Create a table of distinct colors
