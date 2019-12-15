@@ -7,14 +7,16 @@ ORDER BY p.ProductID
 
 
 -- Create a table of distinct colors
-DECLARE @colors AS TABLE (Color nvarchar(15));
+DECLARE @Colors AS TABLE (Color varchar(15));
 
 INSERT INTO @Colors
-SELECT DISTINCT Color FROM SalesLT.Product;
+SELECT DISTINCT Color FROM SalesLT.Product
+WHERE Color Is Not Null ;
 
-SELECT ProductID, Name, Color
-FROM SalesLT.Product
-WHERE Color IN (SELECT Color FROM @Colors);
+
+SELECT p.ProductID, p.Name, p.Color
+FROM SalesLT.Product as p
+WHERE p.Color IN (SELECT Color FROM @Colors);
 
 
 -- Retrieve product parent categories
