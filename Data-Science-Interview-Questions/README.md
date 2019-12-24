@@ -18,4 +18,8 @@ Answers to [120 Data Science Interview Questions](http://www.datasciencequestion
 - [Programming](programming.md)
 - [Statistical Inference](statistical-inference.md)
 
+### Blogs
 
+109 Data Science Interview Questions and Answers - https://www.springboard.com/blog/data-science-interview-questions/
+
+Mastering the Data Science Interview Loop - https://towardsdatascience.com/mastering-the-data-science-interview-15f9c0a558a7
