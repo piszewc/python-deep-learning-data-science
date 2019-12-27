@@ -1,9 +1,9 @@
 
-## Piotr Szewc - Data Sience and Deep Learning portfolio
+## Piotr Szewc - Data Science and Deep Learning portfolio
 
 ## About
 
-This portfolio is a colection of notebooks, algorithms and resources related to Deep Learning and Data Sience. Purpose of this repository is to organise and track my progress and knowlage, provide structured open source/study materials for others.
+This portfolio is a collection of notebooks, algorithms and resources related to Deep Learning and Data Science. Purpose of this repository is to organize and track my progress and knowledge, provide structured open source/study materials for others.
 
 **Table of Contents**
 
@@ -28,6 +28,7 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 | [strings](/python/strings.ipynb)                             | Lean about strings.                                          |
 | [conditionals and recursion](/python/conditionals_and_recursion.ipynb) | Learn mainly about IF statements,                            |
 | [fruitful_functions](python/fruitful_functions.ipynb)        | Part which focus on math operators.                          |
+| [classes](python/Classes.ipynb)                              | Basics how to create classes<br />More about the classes: https://www.youtube.com/watch?v=ZDa-Z5JzLYM&list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc |
 
 ## NumPy
 
@@ -95,6 +96,7 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
 
 
 - Algorithms
+- Data Visualization
 
 
 ## Research papers and books
@@ -105,6 +107,8 @@ This portfolio is a colection of notebooks, algorithms and resources related to 
   - The Elements of Statistical Learning - Stanford University
   - Python Data Science Handbook
   - Python for Data Analysis
+  - Bishop - Pattern Recognition And Machine Learning
+  - Machine Learning - A Probabilistic Perspective
 - Research Papers
   - http://www.arxiv-sanity.com/top
   - https://stanford.edu/~shervine/teaching/cs-229/cheatsheet-deep-learning
@@ -135,9 +139,9 @@ Feel free to contact me to discuss, comment any repo related questions.
 - [LinedIn](https://www.linkedin.com/in/piotr-szewc-9a3a4b117/)
 
 ## License
-This portfolio contains a variety of content, when some of them were created by Piotr Szewc, others are from third-parties. The third-party content is distributed uder the license provided by thouse parties.
+This portfolio contains a variety of content, when some of them were created by Piotr Szewc, others are from third-parties. The third-party content is distributed under the license provided by those parties.
 
-The content developed by Piotr Szewc is distributed uder the following license (MIT):
+The content developed by Piotr Szewc is distributed under the following license (MIT):
 
 	Copyright 2018 Piotr Szewc
 	
