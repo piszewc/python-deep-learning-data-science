@@ -123,3 +123,4 @@ Review the documentation on [Built-In Functions](https://msdn.microsoft.com/en-u
 Review the documentation on [GROUP BY](https://msdn.microsoft.com/en-us/library/ms177673.aspx) and [HAVING](https://msdn.microsoft.com/en-us/library/ms180199.aspx) in the Transact-SQL Reference
 
 *Note that this module has discussed only simple GROUP BY queries. General GROUP BY clauses that include grouping sets, ROLLUP, or CUBE operators are covered later in the course.*
+
