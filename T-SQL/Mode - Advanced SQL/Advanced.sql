@@ -1,3 +1,15 @@
+/*
+
+You can find the original version of exercises at:
+https://mode.com/sql-tutorial/sql-data-types/
+
+Below version of those questions is using StackOverflow Database. You can this database at https://www.brentozar.com/archive/2015/10/how-to-download-the-stack-overflow-database-via-bittorrent/ in the exercises I used 50GB version of the database with SQL Server 2019 (https://www.microsoft.com/en-us/sql-server/sql-server-downloads) and Windows Server 2019 (https://www.microsoft.com/evalcenter/evaluate-windows-server-2019?filetype=ISO). 
+
+The goal of running the below exercises is to get to an advanced level in SQL.
+
+*/
+
+
 -- Convert the funding_total_usd and founded_at_clean columns in the tutorial.crunchbase_companies_clean_date table to strings (varchar format) using a different formatting function for each one.
 
 -- Write a query that counts the number of companies acquired within 3 years, 5 years, and 10 years of being founded (in 3 separate columns). Include a column for total companies acquired as well. Group by category and limit to only rows with a founding date.
