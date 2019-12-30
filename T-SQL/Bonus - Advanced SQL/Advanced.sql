@@ -1,11 +1,11 @@
 /*
 
-You can find the original version of exercises at:
-https://mode.com/sql-tutorial/sql-data-types/
+	You can find the original version of exercises at:
+	https://mode.com/sql-tutorial/sql-data-types/
 
-Below version of those questions is using StackOverflow Database. You can this database at https://www.brentozar.com/archive/2015/10/how-to-download-the-stack-overflow-database-via-bittorrent/ in the exercises I used 50GB version of the database with SQL Server 2019 (https://www.microsoft.com/en-us/sql-server/sql-server-downloads) and Windows Server 2019 (https://www.microsoft.com/evalcenter/evaluate-windows-server-2019?filetype=ISO). 
+	Below version of those questions is using StackOverflow Database. You can download this database at https://www.brentozar.com/archive/2015/10/how-to-download-the-stack-overflow-database-via-bittorrent/ in the exercises I used 50GB version of the database with SQL Server 2019 (https://www.microsoft.com/en-us/sql-server/sql-server-downloads) and Windows Server 2019 (https://www.microsoft.com/evalcenter/evaluate-windows-server-2019?filetype=ISO). 
 
-The goal of running the below exercises is to get to an advanced level in SQL.
+	The goal of running the below exercises is to get to an advanced level in SQL.
 
 */
 
