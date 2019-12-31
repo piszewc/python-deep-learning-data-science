@@ -107,7 +107,7 @@ Review the documentation on [Built-In Functions](https://msdn.microsoft.com/en-u
   > SELECT CustomerID, COUNT(*) AS Orders 
   > FROM Sales.SalesOrderHeader
   > GROUP BY CustomerID
-  > GAVING COUNT() > 10;
+  > HAVING COUNT() > 10;
 
 ## Key Points and Additional Reading
 
