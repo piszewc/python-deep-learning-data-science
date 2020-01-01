@@ -12,7 +12,27 @@
 
 -- Convert the funding_total_usd and founded_at_clean columns in the tutorial.crunchbase_companies_clean_date table to strings (varchar format) using a different formatting function for each one.
 
+SELECT CAST(u.UpVotes AS varchar), CONVERT(VARCHAR(50), u.DownVotes)
+FROM dbo.Users as u
+
 -- Write a query that counts the number of companies acquired within 3 years, 5 years, and 10 years of being founded (in 3 separate columns). Include a column for total companies acquired as well. Group by category and limit to only rows with a founding date.
+
+
+SELECT b.Name, 
+	COUNT(CASE 
+		WHEN DATEDIFF(YEAR,u.CreationDate, u.LastAccessDate) <= 1 THEN 1 ELSE NULL 
+	END ) AS zero_to_one_YEARs
+	, COUNT(CASE 
+		WHEN DATEDIFF(YEAR,u.CreationDate, u.LastAccessDate) BETWEEN 2 AND 5 THEN 1 ELSE NULL 
+	END ) AS two_to_five_YEARs
+	, COUNT(CASE 
+		WHEN DATEDIFF(YEAR,u.CreationDate, u.LastAccessDate) > 5 THEN 1 ELSE NULL 
+	END ) AS more_than_five_YEARs, COUNT(b.Name) AS TotalBadges
+FROM dbo.Users AS u
+LEFT JOIN dbo.Badges AS b
+ON b.UserId = u.Id
+GROUP BY b.Name
+ORDER BY COUNT(b.Name) DESC
 
 -- Write a query that separates the `location` field into separate fields for latitude and longitude. You can compare your results against the actual `lat` and `lon` fields in the table.
 
