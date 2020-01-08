@@ -1,8 +1,23 @@
 -- Write a query that returns all orders placed on the last day of activity that can be found in the Orders table:
 -- Table involved: Sales.Orders
 
+SELECT o.orderid, o.orderdate, o.custid, o.empid
+FROM Sales.Orders as o
+WHERE o.orderdate = (SELECT MAX(orderdate)
+FROM Sales.Orders)
+ORDER BY o.empid
+
 -- Write a query that returns all orders placed by the customer(s) who placed the highest number of orders. Note that more than one customer might have the same number of orders:
 -- Table involved: Sales.Orders
+
+SELECT o.orderid, o.orderdate, o.custid, o.empid
+FROM Sales.Orders as o
+WHERE o.custid = (SELECT TOP(1) custid
+FROM Sales.Orders
+GROUP BY custid
+ORDER BY COUNT(*) DESC
+)
+
 
 -- Write a query that returns employees who did not place orders on or after May 1, 2016:
 -- Tables involved: HR.Employees and Sales.Orders
