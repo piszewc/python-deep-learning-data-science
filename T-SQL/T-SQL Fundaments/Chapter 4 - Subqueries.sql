@@ -50,11 +50,40 @@ ORDER BY custid
 -- Write a query that returns customers who placed orders in 2015 but not in 2016:
 -- Tables involved: Sales.Customers and Sales.Orders
 
+SELECT o.custid, o.companyname
+FROM Sales.Customers AS o
+WHERE o.custid IN 
+	(SELECT custid
+	FROM Sales.Orders 
+	WHERE YEAR(orderdate) = 2015
+	) AND o.custid NOT IN (SELECT custid
+	FROM Sales.Orders 
+	WHERE YEAR(orderdate) = 2016
+	)
+
+
 -- Write a query that returns customers who ordered product 12:
 -- Tables involved: Sales.Customers, Sales.Orders, and Sales.OrderDetails
 
+SELECT custid, companyname
+FROM Sales.Customers AS o
+WHERE o.custid IN 
+	(
+	SELECT custid
+	FROM Sales.Orders
+	WHERE orderid IN
+		(
+		SELECT orderid
+		FROM Sales.OrderDetails
+		WHERE productid = 12
+		)
+	)
+ORDER BY o.custid 
+
 -- Write a query that calculates a running-total quantity for each customer and month:
 -- Table involved: Sales.CustOrders
+
+
 
 -- Explain the difference between IN and EXISTS
 
