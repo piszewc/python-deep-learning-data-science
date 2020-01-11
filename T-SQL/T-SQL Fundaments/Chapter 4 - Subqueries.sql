@@ -87,6 +87,8 @@ ORDER BY o.custid
 
 -- Explain the difference between IN and EXISTS
 
+-- The form of the IN predicate is <scalar_expression> IN (<multivalued subquery>) The predicate evaluates to TRUE if scalar_expression is equal to any of the values returned by the subquery. Recall the request in the previous section—returning orders that were handled by employees with a last name starting with a certain letter. Because more than one employee can have a last name starting with the same letter, this request should be handled with the IN predicate not with an equality operator
+
 -- T-SQL supports a predicate called EXISTS that accepts a subquery as input and returns TRUE if the subquery returns any rows and FALSE otherwise.
 -- One of the benefits of using the EXISTS predicate is that you can intuitively phrase queries that sound like English. For example, this query can be read just as you would say it in ordinary English: Return customers from Spain if they have any orders where the order’s customer ID is the same as the customer’s customer ID
 
