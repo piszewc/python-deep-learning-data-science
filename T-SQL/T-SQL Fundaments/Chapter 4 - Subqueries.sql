@@ -87,5 +87,8 @@ ORDER BY o.custid
 
 -- Explain the difference between IN and EXISTS
 
+-- T-SQL supports a predicate called EXISTS that accepts a subquery as input and returns TRUE if the subquery returns any rows and FALSE otherwise.
+-- One of the benefits of using the EXISTS predicate is that you can intuitively phrase queries that sound like English. For example, this query can be read just as you would say it in ordinary English: Return customers from Spain if they have any orders where the order’s customer ID is the same as the customer’s customer ID
+
 -- Write a query that returns for each order the number of days that passed since the same customer’s previous order. To determine recency among orders, use orderdate as the primary sort element and orderid as the tiebreaker:
 -- Table involved: Sales.Orders
