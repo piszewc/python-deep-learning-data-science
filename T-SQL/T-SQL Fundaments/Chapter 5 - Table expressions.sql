@@ -12,6 +12,15 @@ WHERE orderdate <> endofyear;
 --Invalid column name 'endofyear'.
 --Explain what the problem is, and suggest a valid solution.
 
+WITH C AS (
+	SELECT *,
+	DATEFROMPARTS(YEAR(orderdate), 12, 31) AS endofyear
+	FROM Sales.Orders
+)
+SELECT orderid, orderdate, custid, empid, endofyear
+FROM C
+WHERE orderdate <> endofyear; 
+
 
 -- Write a query that returns the maximum value in the orderdate column for each employee:
 -- Table involved: TSQLV4 database, Sales.Orders table

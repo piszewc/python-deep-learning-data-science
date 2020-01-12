@@ -56,17 +56,63 @@ Base tables to be referred for the questions (6-10)
 
 | Cust ID | Sales | ROW_NUMBER | RANK | DENSE_RANK |
 | ------- | ----- | ---------- | ---- | ---------- |
-| C1      | 100   |            |      |            |
-| C2      | 150   |            |      |            |
-| C3      | 150   |            |      |            |
-| C4      | 200   |            |      |            |
+| C1      | 100   | 1          | 1    | 1          |
+| C2      | 150   | 2          | 2    | 2          |
+| C3      | 150   | 3          | 2    | 2          |
+| C4      | 200   | 4          | 4    | 3          |
 
 6) Write a query to get Top 3 customers with highest number of orders.
 
+```sql
+SELECT TOP (3) o.customer_id, Count(o.order_id) AS orders_number
+FROM orders as o
+GROUP BY customer_id
+ORDER BY Count(order_id) DESC
+```
+
 7) Find new customers who joined in Jan-19
+
+```sql
+SELECT o.customer_id, MIN(o.order_date) as order_date
+FROM orders as o
+GROUP BY o.customer_id
+HAVING YEAR(MIN(o.order_date)) = 2015 AND MONTH(MIN(o.order_date)) = 01
+```
 
 8) Get the list of products which have not had any sale in the last 90 days. 
 
+```sql
+SELECT p.product_id, p.prduct_name, MAX(o.order_date) as last_order, DATEDIFF(day,MAX(o.order_date),GETDATE()) AS days_since_last_order
+FROM orders AS o
+JOIN products AS p
+	ON o.order_id = p.order_id
+GROUP BY od.product_id
+HAVING DATEDIFF(day,MAX(o.order_date),GETDATE()) > 90
+```
+
 9) Get the list of customer names who purchased the least once in 'Books' category in July'19
 
+```sql
+SELECT c.cust_id, c.customer_name
+FROM customers AS c
+WHERE c.cust_id IN 
+	(SELECT DISTINCT o.cust_id FROM orders as o
+	JOIN products AS p ON o.product_id = p.product_id
+	WHERE p.product_category = 'Books' AND YEAR(o.order_date) = 2019 and MONTH(o.order_date) = 07
+```
+
+
+
 10) Names of customers who ordered more than 10 products between Apr'19 and June'19
+
+```sql
+SELECT c.cust_id, c.customer_name
+FROM customers AS c
+WHERE c.cust_id IN 
+	(SELECT o.cust_id 
+	FROM orders as o
+	WHERE order_date => '20190401' AND < '20190701'
+	GROUP BY cust_id
+	HAVING COUNT(o.order_id) > 10 )
+```
+
