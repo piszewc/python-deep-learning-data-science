@@ -110,7 +110,31 @@ SELECT *, SUM (qty_totals) OVER (ORDER BY empid, orderyear) AS running_qty_total
 -- Create an inline TVF that accepts as inputs a supplier ID (@supid AS INT) and a requested number of products (@n AS INT). The function should return @n products with the highest unit prices that are supplied by the specified supplier ID:
 -- Table involved: Production.Products
 -- When issuing the following query:Click here to view code image
+
+
+-- Create an inline TVF that accepts as inputs a supplier ID (@supid AS INT) and a requested number of products (@n AS INT). The function should return @n products with the highest unit prices that are supplied by the specified supplier ID:
+-- Table involved: Production.Products
+-- When issuing the following query:Click here to view code image
+
+CREATE FUNCTION Production.TopProducts(
+    @supid INT,
+	@n INT
+)
+RETURNS TABLE
+AS
+RETURN
+	SELECT TOP(@n) productid, productname, unitprice
+	FROM Production.Products AS p
+	WHERE p.supplierid = @supid
+	ORDER BY unitprice DESC;
+
 SELECT * FROM Production.TopProducts(5, 2);
 
 -- Using the CROSS APPLY operator and the function you created in Exercise 6-1, return the two most expensive products for each supplier:
 -- Table involved: Production.Suppliers
+
+
+SELECT p.supplierid, p.companyname, A.productid, A.productname, A.unitprice
+FROM Production.Suppliers AS p
+CROSS APPLY
+(SELECT * FROM Production.TopProducts(p.supplierid,2)) AS A;
