@@ -129,3 +129,15 @@ FROM HR.Employees as e
 SELECT c.custid, c.region
 FROM Sales.Customers AS c
 ORDER BY CASE WHEN c.region IS NOT NULL THEN 1 ELSE 0 END DESC, c.region ASC
+
+-- Using Table Events Count:
+-- Daily count of events by type
+
+SELECT FORMAT(e.timestamp, 'dd/MM/yyyy ') as Date, e.checkoutType ,Count(*) AS Count
+FROM dbo.Events AS e
+GROUP BY FORMAT(e.timestamp, 'dd/MM/yyyy '), e.checkoutType
+ORDER BY FORMAT(e.timestamp, 'dd/MM/yyyy ') 
+
+
+-- Percentage of new orders that are edited within the following week, grouped by day.
+-- Average numbers of events per orderId, grouped by day 30
