@@ -29,6 +29,14 @@ ORDER BY o.custid, o.orderdate
 -- Write a query against the dbo.Orders table that returns a row for each employee, a column for each order year, and the count of orders for each employee and order year:
 -- Table involved: TSQLV4 database, dbo.Orders table
 
+SELECT o.empid,
+sum(CASE WHEN YEAR(o.orderdate) = 2014 THEN 1 ELSE 0 END) AS cnt2014,
+sum(CASE WHEN YEAR(o.orderdate) = 2015 THEN 1 ELSE 0 END) AS cnt2015,
+sum(CASE WHEN YEAR(o.orderdate) = 2016 THEN 1 ELSE 0 END) AS cnt2016
+FROM dbo.Orders AS o
+GROUP BY o.empid
+
+
 -- Run the following code to create and populate the EmpYearOrders table:
 USE TSQLV4;
 DROP TABLE IF EXISTS dbo.EmpYearOrders;
