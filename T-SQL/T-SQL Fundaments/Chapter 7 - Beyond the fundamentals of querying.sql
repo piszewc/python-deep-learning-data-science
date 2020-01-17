@@ -1,16 +1,30 @@
 -- Write a query against the dbo.Orders table that computes both a rank and a dense rank for each customer order, partitioned by custid and ordered by qty:
 -- Table involved: TSQLV4 database, dbo.Orders table
 
+SELECT o.custid, o.orderid, o.qty, RANK() OVER(PARTITION BY o.custid ORDER BY o.qty) AS rank, DENSE_RANK() OVER(PARTITION BY o.custid  ORDER BY o.qty) as dense_rank
+FROM dbo.Orders AS o
+ORDER BY o.custid
+
 -- Earlier in the chapter in the section “Ranking window functions,” I provided the following query against the Sales.OrderValues view to return distinct values and their associated row numbers:
 
 SELECT val, ROW_NUMBER() OVER(ORDER BY val) AS rownum
 FROM Sales.OrderValues
 GROUP BY val;
+
 -- Can you think of an alternative way to achieve the same task?
 -- Table involved: TSQLV4 database, Sales.OrderValues view
 
 --Write a query against the dbo.Orders table that computes for each customer order both the difference between the current order quantity and the customer’s previous order quantity and the difference between the current order quantity and the customer’s next order quantity:
 -- Table involved: TSQLV4 database, dbo.Orders table
+
+SELECT o.custid, o.orderid, o.qty, 
+o.qty - LAG(o.qty) OVER(PARTITION BY custid
+ORDER BY o.custid, o.orderdate ) AS prev_diff_in_qty ,
+o.qty - LEAD(o.qty) OVER(PARTITION BY custid
+ORDER BY o.custid, o.orderdate )  AS next_diff_in_qty
+FROM dbo.Orders AS o
+ORDER BY o.custid, o.orderdate 
+
 
 -- Write a query against the dbo.Orders table that returns a row for each employee, a column for each order year, and the count of orders for each employee and order year:
 -- Table involved: TSQLV4 database, dbo.Orders table
