@@ -57,6 +57,15 @@ SELECT * FROM dbo.EmpYearOrders;
 
 -- Write a query against the EmpYearOrders table that unpivots the data, returning a row for each employee and order year with the number of orders. Exclude rows in which the number of orders is 0 (in this example, employee 3 in the year 2015).
 
+SELECT empid, orderyear, numorders
+FROM dbo.EmpYearOrders
+	CROSS APPLY 
+		(VALUES
+		(2014,cnt2014),
+		(2015,cnt2015),
+		(2016,cnt2016)) AS C(orderyear, numorders)
+		WHERE numorders >0 ;
+
 -- Write a query against the dbo.Orders table that returns the total quantities for each of the following: (employee, customer, and order year), (employee and order year), and (customer and order year). Include a result column in the output that uniquely identifies the grouping set with which the current row is associated:
 -- Table involved: TSQLV4 database, dbo.Orders table
 
