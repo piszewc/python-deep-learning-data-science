@@ -140,4 +140,27 @@ ORDER BY FORMAT(e.timestamp, 'dd/MM/yyyy ')
 
 
 -- Percentage of new orders that are edited within the following week, grouped by day.
--- Average numbers of events per orderId, grouped by day 30
+
+
+SELECT order_date, sum(cnt_edited) as cnt_edited, sum(cnt_orders) as cnt_orders, sum(CAST(cnt_edited AS float) )/sum(CAST(cnt_orders  AS float)  ) as precent
+FROM (
+	SELECT e.orderId, FORMAT(MIN(e.timestamp), 'dd/MM/yyyy ') as order_date,
+	CASE WHEN e.orderId IN (	
+		SELECT e.orderId
+		FROM dbo.Events AS e
+		GROUP BY e.orderId
+		HAVING count(*) > 1 AND MIN(e.orderId) - MAX(e.orderId) <= 7) THEN 1 ELSE NULL END AS cnt_edited 
+	, count(DISTINCT e.orderId) as cnt_orders
+	FROM dbo.Events AS e
+	GROUP BY e.orderId
+) as orders
+GROUP BY order_date
+
+-- Average numbers of events per orderId, grouped by day 30 - Question in not well defined, only thing that I could do is to count events per day.
+
+SELECT order_day, SUM(cnt_events) as events_done
+FROM (
+SELECT FORMAT(timestamp, 'dd') AS order_day, COUNT(eventId) as cnt_events
+FROM dbo.Events
+GROUP BY FORMAT(timestamp, 'dd'), eventId) as sum_offers
+GROUP BY order_day, cnt_events
