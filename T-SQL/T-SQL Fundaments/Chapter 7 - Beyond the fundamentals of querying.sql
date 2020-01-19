@@ -69,5 +69,19 @@ FROM dbo.EmpYearOrders
 -- Write a query against the dbo.Orders table that returns the total quantities for each of the following: (employee, customer, and order year), (employee and order year), and (customer and order year). Include a result column in the output that uniquely identifies the grouping set with which the current row is associated:
 -- Table involved: TSQLV4 database, dbo.Orders table
 
+
+SELECT GROUPING_ID(empid) AS empidGroup, 
+	empid, custid, YEAR(orderdate) as order_year, SUM(qty) AS sumqty
+FROM dbo.Orders
+GROUP BY 
+	GROUPING SETS
+	(
+		(empid, custid, YEAR(orderdate)),
+		(empid, YEAR(orderdate)),
+		(custid, YEAR(orderdate))
+	)
+	;
+
+
 -- When you’re done with the exercises in this chapter, run the following code for cleanup:
 DROP TABLE IF EXISTS dbo.Orders;
