@@ -35,8 +35,79 @@ GROUP BY con.contest_id, con.hacker_id, con.name
 
 SELECT ts.contest_id, ts.hacker_id, ts.name, ts.total_submissions, ts.total_accepted_submissions, tv.total_views, tv.total_unique_views
 FROM total_subs AS ts
-JOIN total_views as tv ON ts.contest_id = tv.contest_id AND ts.hacker_id = tv.hacker_id
+JOIN total_views as tv ON ts.contest_id = tv.contest_id AND ts.hacker_id = tv.hacker_id;
+
+/*
+
+15 Days of Learning SQL
+
+Julia conducted a  days of learning SQL contest. The start date of the contest was March 01, 2016 and the end date was March 15, 2016.
+
+Write a query to print total number of unique hackers who made at least  submission each day (starting on the first day of the contest), and find the hacker_id and name of the hacker who made maximum number of submissions each day. If more than one such hacker has a maximum number of submissions, print the lowest hacker_id. The query should print this information for each day of the contest, sorted by the date.
 
 
 
-;
+*/
+
+
+/*
+New Companies
+
+Amber's conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy: 
+
+Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
+
+Note:
+
+The tables may contain duplicate records.
+The company_code is string, so the sorting should not be numeric. For example, if the company_codes are C_1, C_2, and C_10, then the ascending company_codes will be C_1, C_10, and C_2.
+*/
+
+WITH cnt_emp AS (
+SELECT company_code, COUNT(DISTINCT employee_code) as cnt_emp
+FROM Employee
+GROUP BY company_code), 
+
+cnt_m AS (
+SELECT company_code, COUNT(DISTINCT manager_code) as cnt_m
+FROM Manager
+GROUP BY company_code),
+
+cnt_sm AS (
+SELECT company_code, COUNT(DISTINCT senior_manager_code) as cnt_sm
+FROM Senior_Manager
+GROUP BY company_code),
+
+cnt_lm AS (
+SELECT company_code, COUNT(DISTINCT Lead_Manager_code) as cnt_lm
+FROM Lead_Manager
+GROUP BY company_code)
+
+
+
+SELECT c.company_code, c.founder, cnt_lm.cnt_lm, cnt_sm.cnt_sm, cnt_m.cnt_m, cnt_emp.cnt_emp
+FROM Company AS c
+JOIN cnt_lm ON c.company_code = cnt_lm.company_code
+JOIN cnt_sm ON c.company_code = cnt_sm.company_code
+JOIN cnt_m ON c.company_code = cnt_m.company_code
+JOIN cnt_emp ON c.company_code = cnt_emp.company_code
+
+ORDER BY c.company_code ASC
+
+/*
+Occupations
+
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+
+Note: Print NULL when there are no more names corresponding to an occupation.
+
+*/
+
+WITH cte AS (SELECT row_number() OVER (PARTITION BY occupation ORDER BY name) AS rn, name as name, occupation as occupation 
+FROM occupations)
+
+SELECT d.name, p.name, s.name, a.name
+FROM (SELECT rn, name FROM cte WHERE occupation = 'Doctor') AS d
+FULL OUTER JOIN (SELECT rn, name FROM cte WHERE occupation = 'Professor') AS p ON p.rn = d.rn
+FULL OUTER JOIN (SELECT rn, name FROM cte WHERE occupation = 'Singer') AS s ON s.rn = p.rn
+FULL OUTER JOIN (SELECT rn, name FROM cte WHERE occupation = 'Actor') AS a ON a.rn = p.rn
