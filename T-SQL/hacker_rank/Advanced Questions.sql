@@ -111,3 +111,73 @@ FROM (SELECT rn, name FROM cte WHERE occupation = 'Doctor') AS d
 FULL OUTER JOIN (SELECT rn, name FROM cte WHERE occupation = 'Professor') AS p ON p.rn = d.rn
 FULL OUTER JOIN (SELECT rn, name FROM cte WHERE occupation = 'Singer') AS s ON s.rn = p.rn
 FULL OUTER JOIN (SELECT rn, name FROM cte WHERE occupation = 'Actor') AS a ON a.rn = p.rn
+
+
+
+/*
+The Report
+
+You are given two tables: Students and Grades. Students contains three columns ID, Name and Marks.
+Grades contains the following data:
+Ketty gives Eve a task to generate a report containing three columns: Name, Grade and Mark. Ketty doesn't want the NAMES of those students who received a grade lower than 8. The report must be in descending order by grade -- i.e. higher grades are entered first. If there is more than one student with the same grade (8-10) assigned to them, order those particular students by their name alphabetically. Finally, if the grade is lower than 8, use "NULL" as their name and list them by their grades in descending order. If there is more than one student with the same grade (1-7) assigned to them, order those particular students by their marks in ascending order.
+
+Write a query to help Eve.
+*/
+
+SELECT CASE WHEN g.Grade > 7 THEN s.Name ELSE NULL END, g.Grade, s.Marks
+FROM Students as s
+LEFT JOIN Grades as g ON s.Marks between g.min_mark and g.max_mark
+ORDER BY g.Grade DESC, s.Name
+
+/*
+New Companies
+
+Amber's conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy: 
+Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
+Note:
+The tables may contain duplicate records.
+The company_code is string, so the sorting should not be numeric. For example, if the company_codes are C_1, C_2, and C_10, then the ascending company_codes will be C_1, C_10, and C_2.
+Input Format
+The following tables contain company data:
+Company: The company_code is the code of the company and founder is the founder of the company. 
+Lead_Manager: The lead_manager_code is the code of the lead manager, and the company_code is the code of the working company. 
+Senior_Manager: The senior_manager_code is the code of the senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+Manager: The manager_code is the code of the manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company.
+
+
+*/
+
+
+
+WITH cnt_emp AS (
+SELECT company_code, COUNT(DISTINCT employee_code) as cnt_emp
+FROM Employee
+GROUP BY company_code), 
+
+cnt_m AS (
+SELECT company_code, COUNT(DISTINCT manager_code) as cnt_m
+FROM Manager
+GROUP BY company_code),
+
+cnt_sm AS (
+SELECT company_code, COUNT(DISTINCT senior_manager_code) as cnt_sm
+FROM Senior_Manager
+GROUP BY company_code),
+
+cnt_lm AS (
+SELECT company_code, COUNT(DISTINCT Lead_Manager_code) as cnt_lm
+FROM Lead_Manager
+GROUP BY company_code)
+
+
+
+SELECT c.company_code, c.founder, cnt_lm.cnt_lm, cnt_sm.cnt_sm, cnt_m.cnt_m, cnt_emp.cnt_emp
+FROM Company AS c
+JOIN cnt_lm ON c.company_code = cnt_lm.company_code
+JOIN cnt_sm ON c.company_code = cnt_sm.company_code
+JOIN cnt_m ON c.company_code = cnt_m.company_code
+JOIN cnt_emp ON c.company_code = cnt_emp.company_code
+
+ORDER BY c.company_code ASC
+
+
