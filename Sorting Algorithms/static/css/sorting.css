@@ -133,27 +133,27 @@ p.lead {
   }
 }
 
-section.resume-section {
+section.algorithms-section {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
   max-width: 75rem;
 }
 
-section.resume-section .resume-item .resume-date {
+section.algorithms-section .algorithms-item .algorithms-date {
   min-width: none;
 }
 
 @media (min-width: 768px) {
-  section.resume-section {
+  section.algorithms-section {
     min-height: 100vh;
   }
-  section.resume-section .resume-item .resume-date {
+  section.algorithms-section .algorithms-item .algorithms-date {
     min-width: 18rem;
   }
 }
 
 @media (min-width: 992px) {
-  section.resume-section {
+  section.algorithms-section {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
   }
