@@ -2,15 +2,16 @@
 
 Those are the notes for Deep Learning with Python book, following notes will only contain theoretical part of the book in order to keep easy source of how things work.
 
-### Chapter 1. What is deep learning? 
+#### PART 1 FUNDAMENTALS OF DEEP LEARNING
+■ What is deep learning?
+■ Before we begin: the mathematical building blocks of neural networks
+■ Getting started with neural networks
+■ Fundamentals of machine learning
 
-This chapter covers 
-
-​	High-level definitions of fundamental concepts 
-
-​	Timeline of the development of machine learning 
-
-​	Key factors behind deep learning’s rising popularity and future potential
-
-
+#### PART 2 DEEP LEARNING IN PRACTICE
+■ Deep learning for computer vision
+■ Deep learning for text and sequences
+■ Advanced deep-learning best practices
+■ Generative deep learning
+■ Conclusions
 
