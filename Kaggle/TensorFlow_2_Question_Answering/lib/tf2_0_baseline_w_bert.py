@@ -11,9 +11,9 @@ import re
 
 import enum
 
-import bert_modeling as modeling
-import bert_optimization as optimization
-import bert_tokenization as tokenization
+import lib.bert_modeling as modeling
+import lib.bert_optimization as optimization
+import lib.bert_tokenization as tokenization
 
 import numpy as np
 import tensorflow as tf
