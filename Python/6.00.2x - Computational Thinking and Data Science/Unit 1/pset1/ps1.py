@@ -54,8 +54,18 @@ def greedy_cow_transport(cows,limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
+    """Assumes items a list, maxCost >= 0,
+         keyFunction maps elements of items to numbers"""
+    cowsCopy = {k: v for k, v in sorted(cows.items(), key=lambda item: item[1], reverse = True)}
+    
+    result = []
+    totalValue = 0.0
+    for key in cowsCopy:
+        if (totalValue+cowsCopy[key]) <= limit:
+            result.append(key)
+            totalValue += cowsCopy[key]
+
+    return (result, totalValue)
 
 
 # Problem 2
@@ -108,7 +118,7 @@ lines to print the result of your problem.
 """
 
 cows = load_cows("ps1_cow_data.txt")
-limit=100
+limit=30
 print(cows)
 
 print(greedy_cow_transport(cows, limit))
