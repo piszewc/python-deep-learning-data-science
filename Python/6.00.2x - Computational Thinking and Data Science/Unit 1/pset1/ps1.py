@@ -116,12 +116,15 @@ Here is some test data for you to see the results of your algorithms with.
 Do not submit this along with any of your answers. Uncomment the last two
 lines to print the result of your problem.
 """
-
-cows = load_cows("ps1_cow_data.txt")
-limit=30
-print(cows)
-
-print(greedy_cow_transport(cows, limit))
-print(brute_force_cow_transport(cows, limit))
+print(
+greedy_cow_transport({'Polaris': 20, 'Lotus': 10, 'Miss Bella': 15, 'Milkshake': 75, 'MooMoo': 85, 'Patches': 60, 'Clover': 5, 'Louis': 45, 'Horns': 50, 'Muscles': 65}, 100)
+)
+#
+#cows = load_cows("ps1_cow_data.txt")
+#limit=30
+#print(cows)
+#
+#print(greedy_cow_transport(cows, limit))
+#print(brute_force_cow_transport(cows, limit))
 
 
