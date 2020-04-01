@@ -56,16 +56,39 @@ def greedy_cow_transport(cows,limit=10):
     """
     """Assumes items a list, maxCost >= 0,
          keyFunction maps elements of items to numbers"""
-    cowsCopy = {k: v for k, v in sorted(cows.items(), key=lambda item: item[1], reverse = True)}
     
+    #Below Code Works with Python 3.7+     
+    
+    cowsCopy = {k: v for k, v in sorted(cows.items(), key=lambda item: item[1], reverse = True)}
+    #cowsCopy = sorted(cows.items(), key=lambda x: x[1], reverse = True)
+    #cowsCopy = dict((x, y) for x, y in cowsCopy)
+    
+    #Create final list to store details from each trip
     result = []
+    #Create list for single trip
+    temp = []
+    
+    #ship weight
     totalValue = 0.0
-    for key in cowsCopy:
-        if (totalValue+cowsCopy[key]) <= limit:
-            result.append(key)
-            totalValue += cowsCopy[key]
-
-    return (result, totalValue)
+    
+    while len(cowsCopy) > 0:
+        for key in cowsCopy:
+            if (totalValue+cowsCopy[key]) <= limit:
+                temp.append(key)
+                totalValue += cowsCopy[key]
+        #add trip to final list        
+        result.append(temp)
+        
+        #remove cows that we aready have on ship
+        for key in temp:
+            del cowsCopy[key]
+        
+        #reset storage
+        temp = []
+        #set current ship weight to 0 
+        totalValue = 0.0
+                    
+    return (result)
 
 
 # Problem 2
@@ -117,9 +140,8 @@ Do not submit this along with any of your answers. Uncomment the last two
 lines to print the result of your problem.
 """
 print(
-greedy_cow_transport({'Polaris': 20, 'Lotus': 10, 'Miss Bella': 15, 'Milkshake': 75, 'MooMoo': 85, 'Patches': 60, 'Clover': 5, 'Louis': 45, 'Horns': 50, 'Muscles': 65}, 100)
-)
-#
+greedy_cow_transport({'Muscles': 65, 'Louis': 45, 'Miss Bella': 15, 'Milkshake': 75, 'Lotus': 10, 'Patches': 60, 'MooMoo': 85, 'Horns': 50, 'Polaris': 20, 'Clover': 5}, 100))
+
 #cows = load_cows("ps1_cow_data.txt")
 #limit=30
 #print(cows)
