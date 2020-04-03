@@ -58,8 +58,8 @@ def greedy_cow_transport(cows,limit=10):
          keyFunction maps elements of items to numbers"""
     
     #Below Code Works with Python 3.7+     
-    
-    cowsCopy = {k: v for k, v in sorted(cows.items(), key=lambda item: item[1], reverse = True)}
+    cowsCopy = cows.copy()
+    cowsCopy = {k: v for k, v in sorted(cowsCopy.items(), key=lambda item: item[1], reverse = True)}
     #cowsCopy = sorted(cows.items(), key=lambda x: x[1], reverse = True)
     #cowsCopy = dict((x, y) for x, y in cowsCopy)
     
