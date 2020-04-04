@@ -113,10 +113,27 @@ def brute_force_cow_transport(cows,limit=10):
     trips
     """
     cowsCopy = cows.copy()
-
     result = []
+    
+    all_posible_trips = []
+    
     for partition in get_partitions(cowsCopy):
-        print(partition)
+        all_posible_trips.append(partition)
+    
+    #for i in range(len(all_posible_trips)):
+    
+    totalValue = 0.0
+    
+    limit_status = True
+    while limit_status == True:
+        for i in all_posible_trips[1][0]:
+            totalValue = totalValue+cowsCopy.get(i)
+            if totalValue >= limit:
+                limit_status = False
+            else:
+                break
+                    
+                
     
     return result
     
