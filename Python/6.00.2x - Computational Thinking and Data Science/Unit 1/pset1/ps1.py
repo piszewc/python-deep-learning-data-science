@@ -112,10 +112,11 @@ def brute_force_cow_transport(cows,limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    
-    cowsCopy = {k: v for k, v in sorted(cows.items(), key=lambda item: item[1], reverse = True)}
+    cowsCopy = cows.copy()
 
     result = []
+    for partition in get_partitions(cowsCopy):
+        print(partition)
     
     return result
     
@@ -143,14 +144,12 @@ Here is some test data for you to see the results of your algorithms with.
 Do not submit this along with any of your answers. Uncomment the last two
 lines to print the result of your problem.
 """
-print(
-greedy_cow_transport({'Muscles': 65, 'Louis': 45, 'Miss Bella': 15, 'Milkshake': 75, 'Lotus': 10, 'Patches': 60, 'MooMoo': 85, 'Horns': 50, 'Polaris': 20, 'Clover': 5}, 100))
 
-#cows = load_cows("ps1_cow_data.txt")
-#limit=30
-#print(cows)
-#
-#print(greedy_cow_transport(cows, limit))
-#print(brute_force_cow_transport(cows, limit))
+cows = load_cows("ps1_cow_data.txt")
+limit=30
+print(cows)
+
+print(greedy_cow_transport(cows, limit))
+print(brute_force_cow_transport(cows, limit))
 
 
