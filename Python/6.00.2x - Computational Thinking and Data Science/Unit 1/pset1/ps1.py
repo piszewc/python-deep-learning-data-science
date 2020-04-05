@@ -120,21 +120,25 @@ def brute_force_cow_transport(cows,limit=10):
     for partition in get_partitions(cowsCopy):
         all_posible_trips.append(partition)
     
-    #for i in range(len(all_posible_trips)):
-    
-    totalValue = 0.0
-    
-    limit_status = True
-    while limit_status == True:
-        for i in all_posible_trips[1][0]:
-            totalValue = totalValue+cowsCopy.get(i)
-            if totalValue >= limit:
-                limit_status = False
-            else:
+       
+    for posible_trip in all_posible_trips:
+
+        for trip in posible_trip:
+        #for trip in posible_trip:
+            limit_status = True
+            totalValue = 0.0
+
+            for cow in trip: 
+                totalValue = totalValue+cowsCopy.get(cow)
+                if totalValue >= limit:
+                   limit_status = False
+                   break
+            if limit_status == False:
                 break
-                    
-                
+        if limit_status == True:
+            result.append(posible_trip)
     
+    final_result = min([x for x in result])
     return result
     
         
@@ -163,10 +167,9 @@ lines to print the result of your problem.
 """
 
 cows = load_cows("ps1_cow_data.txt")
-limit=30
-print(cows)
-
+limit=10
+#print(cows)
 print(greedy_cow_transport(cows, limit))
 print(brute_force_cow_transport(cows, limit))
-
+print(brute_force_cow_transport({'Miss Bella': 25, 'Lotus': 40, 'Boo': 20, 'MooMoo': 50, 'Milkshake': 40, 'Horns': 25}, 100))
 
