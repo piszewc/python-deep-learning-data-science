@@ -15,8 +15,12 @@ import pylab
 # If you get a "Bad magic number" ImportError, you are not using Python 3.5 
 
 # For Python 3.6:
-from ps2_verify_movement36 import testRobotMovement
+#from ps2_verify_movement36 import testRobotMovement
 # If you get a "Bad magic number" ImportError, you are not using Python 3.6
+
+# For Python 3.6:
+from ps2_verify_movement37 import testRobotMovement
+# If you get a "Bad magic number" ImportError, you are not using Python 3.7
 
 
 # === Provided class Position
@@ -82,7 +86,8 @@ class RectangularRoom(object):
         width: an integer > 0
         height: an integer > 0
         """
-        raise NotImplementedError
+        self.width = width
+        self.height = height
     
     def cleanTileAtPosition(self, pos):
         """
@@ -92,7 +97,10 @@ class RectangularRoom(object):
 
         pos: a Position
         """
-        raise NotImplementedError
+        
+        self.pos = True
+        
+        return self.pos
 
     def isTileCleaned(self, m, n):
         """
