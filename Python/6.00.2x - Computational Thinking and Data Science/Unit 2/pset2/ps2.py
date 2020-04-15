@@ -70,6 +70,7 @@ class Position(object):
 
 # === Problem 1
 class RectangularRoom(object):
+    import math
     """
     A RectangularRoom represents a rectangular region containing clean or dirty
     tiles.
@@ -88,6 +89,15 @@ class RectangularRoom(object):
         """
         self.width = width
         self.height = height
+        
+        self.tiles = {}
+        
+        for i in range(self.width):
+            for j in range(self.height):
+                self.tiles.update({(i,j):False})
+        
+    def getRoom(self):
+        print(self.tiles)
     
     def cleanTileAtPosition(self, pos):
         """
@@ -98,9 +108,11 @@ class RectangularRoom(object):
         pos: a Position
         """
         
-        self.pos = True
+        self.pos_x = math.floor(pos.getX())
+        self.pos_y = math.floor(pos.getY())
         
-        return self.pos
+        self.tiles.update({(self.pos_x,self.pos_y):True})
+
 
     def isTileCleaned(self, m, n):
         """
@@ -112,7 +124,13 @@ class RectangularRoom(object):
         n: an integer
         returns: True if (m, n) is cleaned, False otherwise
         """
-        raise NotImplementedError
+                
+        if self.tiles.get((m,n)) == True:
+            return True
+        else:
+            return False
+            
+        
     
     def getNumTiles(self):
         """
@@ -120,7 +138,9 @@ class RectangularRoom(object):
 
         returns: an integer
         """
-        raise NotImplementedError
+        numTiles = self.width*self.height
+        return numTiles
+        
 
     def getNumCleanedTiles(self):
         """
@@ -128,7 +148,14 @@ class RectangularRoom(object):
 
         returns: an integer
         """
-        raise NotImplementedError
+        self.count_clean_tiles = 0 
+        
+        for i in self.tiles:
+            if self.tiles.get(i) == True:
+                self.count_clean_tiles += 1
+        
+        return self.count_clean_tiles
+        
 
     def getRandomPosition(self):
         """
@@ -136,7 +163,9 @@ class RectangularRoom(object):
 
         returns: a Position object.
         """
-        raise NotImplementedError
+        self.random_pos = random.choice(list(self.tiles.keys()))
+        self.rnd_x, self.rnd_y = self.random_pos
+        return Position(self.rnd_x, self.rnd_y)
 
     def isPositionInRoom(self, pos):
         """
@@ -145,8 +174,20 @@ class RectangularRoom(object):
         pos: a Position object.
         returns: True if pos is in the room, False otherwise.
         """
-        raise NotImplementedError
+        status = False
+        
+        self.pos_x = math.floor(pos.getX())
+        self.pos_y = math.floor(pos.getY())
 
+        
+        for i in self.tiles.keys():
+            if i == (self.pos_x,self.pos_y):
+                status = True
+        
+        return status
+
+                
+        
 
 # === Problem 2
 class Robot(object):
