@@ -325,7 +325,7 @@ def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
 
 def RunRobots(robot_list, room, min_coverage, num_robots, width, height):
     
-    #anim = ps2_visualize.RobotVisualization(num_robots, width, height)
+    anim = ps2_visualize.RobotVisualization(num_robots, width, height)
 
     count_steps = 0 
     
@@ -333,14 +333,14 @@ def RunRobots(robot_list, room, min_coverage, num_robots, width, height):
     
     while room.getNumCleanedTiles()/room.getNumTiles() < min_coverage:
         for i in range(len(temp_robots)):
-            #anim.update(room, temp_robots)
+            anim.update(room, temp_robots)
             temp_robots[i].updatePositionAndClean()
         count_steps+=1
-    #anim.done()
+    anim.done()
     return count_steps
 
 # Uncomment this line to see how much your simulation takes on average
-#print(runSimulation(4, 2.0, 20, 20, 0.78, 30, StandardRobot))
+print(runSimulation(5, 1.0, 20, 20, 0.78, 30, StandardRobot))
 
 # === Problem 5
 class RandomWalkRobot(Robot):
@@ -416,18 +416,18 @@ def showPlot2(title, x_label, y_label):
 #
 # Write a function call to showPlot1 that generates an appropriately-labeled plot.
 #
-title = "Time It Takes 1 - 10 Robots To Clean 80% Of A Room"
-x_label = "Number of Robots"
-y_label = "Time-steps"
-
-showPlot1(title, x_label, y_label)
+#title = "Time It Takes 1 - 10 Robots To Clean 80% Of A Room"
+#x_label = "Number of Robots"
+#y_label = "Time-steps"
+#
+#showPlot1(title, x_label, y_label)
 
 
 #
 # 2) Write a function call to showPlot2 that generates an appropriately-labeled plot.
 #
-title = "Time It Takes Two Robots To Clean 80% Of Variously Sized Rooms"
-x_label = "Aspect Ratio"
-y_label = "Time-steps"
-
-showPlot2(title, x_label, y_label)
+#title = "Time It Takes Two Robots To Clean 80% Of Variously Sized Rooms"
+#x_label = "Aspect Ratio"
+#y_label = "Time-steps"
+#
+#showPlot2(title, x_label, y_label)
