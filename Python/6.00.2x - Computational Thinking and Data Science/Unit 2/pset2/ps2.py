@@ -311,25 +311,36 @@ def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
                 RandomWalkRobot)
     """
     time_steps = []
+    robot_list = []
     room = RectangularRoom(width,height)
     
-    for x in range(num_trials):
-            robot = robot_type(room, speed)
-            time_steps.append(RunRobots(robot, room, min_coverage,num_robots))
-        
-    return sum(time_steps)/len(time_steps)
+    for i in range(num_robots):
+        robot = robot_type(room, speed)
+        robot_list.append(robot)
 
-def RunRobots(robot, room, min_coverage):
-    count_steps = 0
+    for x in range(num_trials):
+        time_steps.append(RunRobots(robot_list, room, min_coverage, num_robots, width, height))
+    
+    return sum(time_steps)*1.0
+
+def RunRobots(robot_list, room, min_coverage, num_robots, width, height):
+    
+    #anim = ps2_visualize.RobotVisualization(num_robots, width, height)
+
+    count_steps = 0 
+    
+    temp_robots = robot_list.copy()
+    
     while room.getNumCleanedTiles()/room.getNumTiles() < min_coverage:
-        robot.updatePositionAndClean()
+        for i in range(len(temp_robots)):
+            #anim.update(room, temp_robots)
+            temp_robots[i].updatePositionAndClean()
         count_steps+=1
-       
+    #anim.done()
     return count_steps
 
 # Uncomment this line to see how much your simulation takes on average
-print(runSimulation(1, 1.0, 10, 10, 0.75, 30, StandardRobot))
-
+#print(runSimulation(4, 2.0, 20, 20, 0.78, 30, StandardRobot))
 
 # === Problem 5
 class RandomWalkRobot(Robot):
@@ -344,7 +355,16 @@ class RandomWalkRobot(Robot):
         Move the robot to a new position and mark the tile it is on as having
         been cleaned.
         """
-        raise NotImplementedError
+        
+        self.current_position = self.getRobotPosition()
+        self.current_direction = self.getRobotDirection()
+        self.new_position = Position.getNewPosition(self.current_position, self.current_direction, self.speed)
+        if self.room.isPositionInRoom(self.new_position) == True:
+            self.direction = random.randint(0,359)
+            self.setRobotPosition(self.new_position)
+            self.room.cleanTileAtPosition(self.new_position)
+        else:
+            self.direction = random.randint(0,359)
 
 
 def showPlot1(title, x_label, y_label):
@@ -394,15 +414,20 @@ def showPlot2(title, x_label, y_label):
 # before the plot will show up.
 
 #
-# 1) Write a function call to showPlot1 that generates an appropriately-labeled
-#     plot.
+# Write a function call to showPlot1 that generates an appropriately-labeled plot.
 #
-#       (... your call here ...)
-#
+title = "Time It Takes 1 - 10 Robots To Clean 80% Of A Room"
+x_label = "Number of Robots"
+y_label = "Time-steps"
+
+showPlot1(title, x_label, y_label)
+
 
 #
-# 2) Write a function call to showPlot2 that generates an appropriately-labeled
-#     plot.
+# 2) Write a function call to showPlot2 that generates an appropriately-labeled plot.
 #
-#       (... your call here ...)
-#
+title = "Time It Takes Two Robots To Clean 80% Of Variously Sized Rooms"
+x_label = "Aspect Ratio"
+y_label = "Time-steps"
+
+showPlot2(title, x_label, y_label)
