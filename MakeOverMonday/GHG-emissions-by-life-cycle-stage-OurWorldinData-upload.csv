@@ -1,0 +1,44 @@
+Food product;Type;Land use change;Animal Feed;Farm;Processing;Transport;Packging;Retail
+Wheat & Rye (Bread);Cereal products;0,10;0,00;0,80;0,20;0,10;0,10;0,10
+Maize (Meal);Cereal products;0,30;0,00;0,50;0,10;0,10;0,10;0,00
+Barley (Beer);Cereal products;0,00;0,00;0,20;0,10;0,00;0,50;0,30
+Oatmeal;Cereal products;0,00;0,00;1,40;0,00;0,10;0,10;0,00
+Rice;Cereal products;0,00;0,00;3,60;0,10;0,10;0,10;0,10
+Potatoes;Vegetables and Fruit;0,00;0,00;0,20;0,00;0,10;0,00;0,00
+Cassava;Vegetables and Fruit;0,60;0,00;0,20;0,00;0,10;0,00;0,00
+Cane Sugar;Sweeteners and other products;1,20;0,00;0,50;0,00;0,80;0,10;0,00
+Beet Sugar;Sweeteners and other products;0,00;0,00;0,50;0,20;0,60;0,10;0,00
+Other Pulses;Sweeteners and other products;0,00;0,00;1,10;0,00;0,10;0,40;0,00
+Peas;Vegetables and Fruit;0,00;0,00;0,70;0,00;0,10;0,00;0,00
+Nuts;Fats;-2,10;0,00;2,10;0,00;0,10;0,10;0,00
+Groundnuts;Fats;0,40;0,00;1,40;0,40;0,10;0,10;0,00
+Soymilk;Vegetables and Fruit;0,20;0,00;0,10;0,20;0,10;0,10;0,30
+Tofu;Vegetables and Fruit;1,00;0,00;0,50;0,80;0,20;0,20;0,30
+Soybean Oil;Fats;3,10;0,00;1,50;0,30;0,30;0,80;0,00
+Palm Oil;Fats;3,10;0,00;2,10;1,30;0,20;0,90;0,00
+Sunflower Oil;Fats;0,10;0,00;2,10;0,20;0,20;0,90;0,00
+Rapeseed Oil;Fats;0,20;0,00;2,30;0,20;0,20;0,80;0,00
+Olive Oil;Fats;-0,40;0,00;4,30;0,70;0,50;0,90;0,00
+Tomatoes;Vegetables and Fruit;0,40;0,00;0,70;0,00;0,20;0,10;0,00
+Onions & Leeks;Vegetables and Fruit;0,00;0,00;0,20;0,00;0,10;0,00;0,00
+Root Vegetables;Vegetables and Fruit;0,00;0,00;0,20;0,00;0,10;0,00;0,00
+Brassicas;Vegetables and Fruit;0,00;0,00;0,30;0,00;0,10;0,00;0,00
+Other Vegetables;Vegetables and Fruit;0,00;0,00;0,20;0,10;0,20;0,00;0,00
+Citrus Fruit;Vegetables and Fruit;-0,10;0,00;0,30;0,00;0,10;0,00;0,00
+Bananas;Vegetables and Fruit;0,00;0,00;0,30;0,10;0,30;0,10;0,00
+Apples;Vegetables and Fruit;0,00;0,00;0,20;0,00;0,10;0,00;0,00
+Berries & Grapes;Vegetables and Fruit;0,00;0,00;0,70;0,00;0,20;0,20;0,00
+Wine;Sweeteners and other products;-0,10;0,00;0,60;0,10;0,10;0,70;0,00
+Other Fruit;Vegetables and Fruit;0,10;0,00;0,40;0,00;0,20;0,00;0,00
+Coffee;Sweeteners and other products;3,70;0,00;10,40;0,60;0,10;1,60;0,10
+Dark Chocolate;Sweeteners and other products;14,30;0,00;3,70;0,20;0,10;0,40;0,00
+Beef (beef herd);Meat and Fish;16,30;1,90;39,40;1,30;0,30;0,20;0,20
+Beef (dairy herd);Meat and Fish;0,90;2,50;15,70;1,10;0,40;0,30;0,20
+Lamb & Mutton;Meat and Fish;0,50;2,40;19,50;1,10;0,50;0,30;0,20
+Pig Meat;Meat and Fish;1,50;2,90;1,70;0,30;0,30;0,30;0,20
+Poultry Meat;Meat and Fish;2,50;1,80;0,70;0,40;0,30;0,20;0,20
+Milk;Dairy;0,50;0,20;1,50;0,10;0,10;0,10;0,30
+Cheese;Dairy;4,50;2,30;13,10;0,70;0,10;0,20;0,30
+Eggs;Dairy;0,70;2,20;1,30;0,00;0,10;0,20;0,00
+Fish (farmed);Meat and Fish;0,50;0,80;3,60;0,00;0,10;0,10;0,00
+Shrimps (farmed);Meat and Fish;0,20;2,50;8,40;0,00;0,20;0,30;0,20
