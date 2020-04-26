@@ -41,10 +41,12 @@ def clt():
     for sampleSize in sampleSizes:
         sampleMeans = []
         for t in range(20):
-            sample = ## FILL THIS IN
+            sample = flipCoin(sampleSize)
             sampleMeans.append(getMeanAndStd(sample)[0])
         ## FILL IN TWO LINES
         ## WHAT TO DO WITH THE SAMPLE MEANS?
+    
+    #return sum(sampleMeans)
 
 clt()
 pylab.figure(1)
