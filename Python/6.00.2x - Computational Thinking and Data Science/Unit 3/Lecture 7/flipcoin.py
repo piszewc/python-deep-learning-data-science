@@ -45,8 +45,8 @@ def clt():
             sampleMeans.append(getMeanAndStd(sample)[0])
         ## FILL IN TWO LINES
         ## WHAT TO DO WITH THE SAMPLE MEANS?
-    
-    #return sum(sampleMeans)
+        meanOfMeans.append(getMeanAndStd(sampleMeans)[0])
+        stdOfMeans.append(getMeanAndStd(sampleMeans)[1])
 
 clt()
 pylab.figure(1)
