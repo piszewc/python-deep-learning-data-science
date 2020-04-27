@@ -14,3 +14,6 @@ def noReplacementSimulation(numTrials):
     balls of the same color were drawn.
     '''
     # Your code here
+    
+    
+    
