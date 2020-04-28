@@ -57,8 +57,10 @@ class SimpleVirus(object):
         returns: True with probability self.getClearProb and otherwise returns
         False.
         """
-
-        # TODO
+        if self.getClearProb > random.random(0,1):
+            return True
+        else:
+            return False
 
     
     def reproduce(self, popDensity):
@@ -81,8 +83,13 @@ class SimpleVirus(object):
         NoChildException if this virus particle does not reproduce.               
         """
 
-        # TODO
-
+        self.rep_probability = self.maxBirthProb * (1 - popDensity)
+        
+        try:
+            SimpleVirus(self.rep_probability,self.getClearProb)
+        except:
+            NoChildException(Exception)
+            
 
 
 class Patient(object):
