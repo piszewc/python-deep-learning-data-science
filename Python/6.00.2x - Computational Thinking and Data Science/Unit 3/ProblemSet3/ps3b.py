@@ -52,13 +52,14 @@ class SimpleVirus(object):
         return self.clearProb
 
     def doesClear(self):
-        """ Stochastically determines whether this virus particle is cleared from the
+        """
+        Stochastically determines whether this virus particle is cleared from the
         patient's body at a time step. 
         returns: True with probability self.getClearProb and otherwise returns
         False.
         """
         if self.getClearProb > random.random(0,1):
-            return True
+            return True, self.getClearProb
         else:
             return False
 
