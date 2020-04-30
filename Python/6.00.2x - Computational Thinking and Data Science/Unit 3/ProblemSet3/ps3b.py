@@ -58,8 +58,8 @@ class SimpleVirus(object):
         returns: True with probability self.getClearProb and otherwise returns
         False.
         """
-        if self.getClearProb > random.random(0,1):
-            return True, self.getClearProb
+        if self.getClearProb() >= random.random():
+            return True
         else:
             return False
 
@@ -84,15 +84,28 @@ class SimpleVirus(object):
         NoChildException if this virus particle does not reproduce.               
         """
 
-        self.rep_probability = self.maxBirthProb * (1 - popDensity)
+        self.rep_probability = (self.getMaxBirthProb() * (1 - popDensity))
         
         try:
-            SimpleVirus(self.rep_probability,self.getClearProb)
+            if random.random() <= self.rep_probability:
+                return SimpleVirus(self.getMaxBirthProb(), self.getClearProb())
         except:
-            NoChildException(Exception)
+            raise NoChildException
             
 
+#v1 = SimpleVirus(1.0, 0.0)
+#print(v1.doesClear()) # False
+#v1 = SimpleVirus(0.0, 0.0)
+#print(v1.doesClear()) # False
+#v1 = SimpleVirus(1.0, 1.0)
+#print(v1.doesClear()) # True
+#v1 = SimpleVirus(0.0, 1.0)
+#print(v1.doesClear()) # True
+#v1 = SimpleVirus(0.96, 0.72)
+#print(v1.reproduce(0.04))
+#print(v1.reproduce(0.4))
 
+            
 class Patient(object):
     """
     Representation of a simplified patient. The patient does not take any drugs
@@ -132,8 +145,8 @@ class Patient(object):
         Gets the size of the current total virus population. 
         returns: The total virus population (an integer)
         """
-        x = 1
-        return x        
+        x = len(self.getViruses())
+        return x 
 
 
     def update(self):
@@ -155,10 +168,55 @@ class Patient(object):
         integer)
         """
 
-        # TODO
+#        - Determine whether each virus particle survives and updates the list
+#        of virus particles accordingly.   
+#
+        
+        for virus in self.viruses[:]:
+            if virus.doesClear():
+                self.viruses.remove(virus)
+        
+#        - The current population density is calculated. This population density
+#          value is used until the next call to update() 
+        
+        self.desnityPopulation = len(self.viruses) / self.getMaxPop()
+        
+#        - Based on this value of population density, determine whether each 
+#          virus particle should reproduce and add offspring virus particles to 
+#          the list of viruses in this patient.                    
+        
+        if self.desnityPopulation <= 1:
+            for virus in self.viruses[:]:
+                try:
+                    self.viruses.append(virus.reproduce(self.desnityPopulation))
+                except:
+                    raise NoChildException
+        
+        return len(self.viruses)
 
-
-
+        
+        
+viruses = [SimpleVirus(0.34, 0.94), SimpleVirus(0.57, 0.77), SimpleVirus(0.51, 0.06), SimpleVirus(0.59, 0.46), SimpleVirus(0.05, 0.2)]
+P1 = Patient(viruses, 7)
+print(P1.getTotalPop())
+virus = SimpleVirus(1.0, 0.0)
+patient = Patient([virus], 100)
+print(patient.update())
+print(patient.update())
+print(patient.update())
+print(patient.update())
+print(patient.update())
+print(patient.update())
+print(patient.update())
+print(patient.update())
+print(patient.getTotalPop())
+virus = SimpleVirus(1.0, 1.0)
+patient = Patient([virus], 100)
+print(patient.getTotalPop())
+viruses = [SimpleVirus(0.46, 0.95), SimpleVirus(0.74, 0.72), SimpleVirus(0.39, 0.72)]
+P1 = Patient(viruses, 9)
+print(P1.getTotalPop())
+                
 #
 # PROBLEM 2
 #
