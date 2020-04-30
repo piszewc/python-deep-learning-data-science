@@ -169,28 +169,29 @@ class Patient(object):
         """
 
 #        - Determine whether each virus particle survives and updates the list
-#        of virus particles accordingly.   
+#        of virus particles accordingly.    
 #
+        self.viruses = list(filter(None.__ne__, self.viruses[:]))
         
         for virus in self.viruses[:]:
             if virus.doesClear():
                 self.viruses.remove(virus)
+                
         
 #        - The current population density is calculated. This population density
 #          value is used until the next call to update() 
         
-        self.desnityPopulation = len(self.viruses) / self.getMaxPop()
-        
+        self.densityPopulation = len(self.viruses) / self.getMaxPop()
 #        - Based on this value of population density, determine whether each 
 #          virus particle should reproduce and add offspring virus particles to 
 #          the list of viruses in this patient.                    
         
-        if self.desnityPopulation <= 1:
+        if self.densityPopulation <= 1:
             for virus in self.viruses[:]:
                 try:
-                    self.viruses.append(virus.reproduce(self.desnityPopulation))
-                except:
-                    raise NoChildException
+                    self.viruses.append(virus.reproduce(self.densityPopulation))
+                except NoChildException:
+                    pass
         
         return len(self.viruses)
 
