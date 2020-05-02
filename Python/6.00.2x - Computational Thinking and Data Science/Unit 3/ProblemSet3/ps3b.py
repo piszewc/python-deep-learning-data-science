@@ -273,7 +273,7 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
 #simulationWithoutDrug(100, 200, 0.2, 0.8, 1)
 #simulationWithoutDrug(1, 90, 0.8, 0.1, 1)
 #simulationWithoutDrug(1, 90, 0.8, 0.1, 1)
-simulationWithoutDrug(100, 1000, 0.1, 0.05, 300)
+simulationWithoutDrug(100, 1000, 0.1, 0.05, 100)
 
 
 #
