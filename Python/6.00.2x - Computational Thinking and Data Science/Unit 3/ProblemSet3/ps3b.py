@@ -238,21 +238,29 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
     clearProb: Maximum clearance probability (a float between 0-1)
     numTrials: number of simulation runs to execute (an integer)
     """
-    numTrials = numTrials
-    viruses = []
-    for i in range(numViruses):
-        viruses.append(SimpleVirus(maxBirthProb,clearProb))
+
+    mainResults = []
     
-    patient = Patient(viruses,maxPop)
+    for i in range(numTrials):
+        
+        viruses = []
+        for i in range(numViruses):
+            viruses.append(SimpleVirus(maxBirthProb,clearProb))
     
-    trialsResults = []
+        patient = Patient(viruses,maxPop)
     
-    for i in range(300):
-        trialsResults.append([float(patient.update())])
-    #run AVG for each item
-    trialsAvgResults = AVG()
+        trialsResults = []
+        for i in range(300):
+            trialsResults.append(float(patient.update()))
+        
+        mainResults.append(trialsResults)
     
-    pylab.plot(trialsResults, label = "SimpleVirus")
+    #print(mainResults)
+    avg = [sum(x)/numTrials for x in zip(*mainResults)]
+    
+    #print(avg)   
+    
+    pylab.plot(avg, label = "SimpleVirus")
     pylab.title("SimpleVirus simulation")
     pylab.xlabel("Time Steps")
     pylab.ylabel("Average Virus Population")
@@ -265,11 +273,8 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
 #simulationWithoutDrug(100, 200, 0.2, 0.8, 1)
 #simulationWithoutDrug(1, 90, 0.8, 0.1, 1)
 #simulationWithoutDrug(1, 90, 0.8, 0.1, 1)
-simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
-simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
-simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
-simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
-simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
+simulationWithoutDrug(100, 1000, 0.1, 0.05, 300)
+
 
 #
 # PROBLEM 3
