@@ -2,6 +2,8 @@
 
 import random
 import pylab
+from ps3b_precompiled_37 import *
+
 
 ''' 
 Begin helper code
@@ -197,26 +199,26 @@ class Patient(object):
 
         
         
-viruses = [SimpleVirus(0.34, 0.94), SimpleVirus(0.57, 0.77), SimpleVirus(0.51, 0.06), SimpleVirus(0.59, 0.46), SimpleVirus(0.05, 0.2)]
-P1 = Patient(viruses, 7)
-print(P1.getTotalPop())
-virus = SimpleVirus(1.0, 0.0)
-patient = Patient([virus], 100)
-print(patient.update())
-print(patient.update())
-print(patient.update())
-print(patient.update())
-print(patient.update())
-print(patient.update())
-print(patient.update())
-print(patient.update())
-print(patient.getTotalPop())
-virus = SimpleVirus(1.0, 1.0)
-patient = Patient([virus], 100)
-print(patient.getTotalPop())
-viruses = [SimpleVirus(0.46, 0.95), SimpleVirus(0.74, 0.72), SimpleVirus(0.39, 0.72)]
-P1 = Patient(viruses, 9)
-print(P1.getTotalPop())
+#viruses = [SimpleVirus(0.34, 0.94), SimpleVirus(0.57, 0.77), SimpleVirus(0.51, 0.06), SimpleVirus(0.59, 0.46), SimpleVirus(0.05, 0.2)]
+#P1 = Patient(viruses, 7)
+#print(P1.getTotalPop())
+#virus = SimpleVirus(1.0, 0.0)
+#patient = Patient([virus], 100)
+#print(patient.update())
+#print(patient.update())
+#print(patient.update())
+#print(patient.update())
+#print(patient.update())
+#print(patient.update())
+#print(patient.update())
+#print(patient.update())
+#print(patient.getTotalPop())
+#virus = SimpleVirus(1.0, 1.0)
+#patient = Patient([virus], 100)
+#print(patient.getTotalPop())
+#viruses = [SimpleVirus(0.46, 0.95), SimpleVirus(0.74, 0.72), SimpleVirus(0.39, 0.72)]
+#P1 = Patient(viruses, 9)
+#print(P1.getTotalPop())
                 
 #
 # PROBLEM 2
@@ -236,10 +238,38 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
     clearProb: Maximum clearance probability (a float between 0-1)
     numTrials: number of simulation runs to execute (an integer)
     """
+    numTrials = numTrials
+    viruses = []
+    for i in range(numViruses):
+        viruses.append(SimpleVirus(maxBirthProb,clearProb))
+    
+    patient = Patient(viruses,maxPop)
+    
+    trialsResults = []
+    
+    for i in range(300):
+        trialsResults.append([float(patient.update())])
+    #run AVG for each item
+    trialsAvgResults = AVG()
+    
+    pylab.plot(trialsResults, label = "SimpleVirus")
+    pylab.title("SimpleVirus simulation")
+    pylab.xlabel("Time Steps")
+    pylab.ylabel("Average Virus Population")
+    pylab.legend(loc = "best")
+    pylab.show()
+    
+    #return trialsResults
 
-    # TODO
-
-
+#simulationWithoutDrug(1, 10, 1.0, 0.0, 1)
+#simulationWithoutDrug(100, 200, 0.2, 0.8, 1)
+#simulationWithoutDrug(1, 90, 0.8, 0.1, 1)
+#simulationWithoutDrug(1, 90, 0.8, 0.1, 1)
+simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
+simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
+simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
+simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
+simulationWithoutDrug(100, 1000, 0.1, 0.05, 1)
 
 #
 # PROBLEM 3
