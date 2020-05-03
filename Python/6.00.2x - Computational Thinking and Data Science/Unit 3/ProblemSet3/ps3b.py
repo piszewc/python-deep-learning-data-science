@@ -341,6 +341,9 @@ class ResistantVirus(SimpleVirus):
             return False
         else:
             return self.drug_check
+        
+        return self.drug_check
+
 
     def reproduce(self, popDensity, activeDrugs):
         """
@@ -387,27 +390,50 @@ class ResistantVirus(SimpleVirus):
         NoChildException if this virus particle does not reproduce.
         """
         
-        self.isDrugResistant = False
+        self.isDrugResistant = True
         
+        #check if virus can reproduse - if there is any Active drug that we are not resistant to we cannot reproduce
         for i in activeDrugs:
             if self.isResistantTo(i):
                 self.isDrugResistant = True
+            elif self.isResistantTo(i) == False:
+                self.isDrugResistant = False
+                break
             else:
                 pass
-            
-        
+                
         self.rep_probability = (self.getMaxBirthProb() * (1 - popDensity))
+        
+        self.mutatedResistances = self.getResistances().copy()
+        
+        for i in self.mutatedResistances:
+            if self.mutatedResistances.get(i) == True:
+                if random.random() < self.mutProb:
+                    self.mutatedResistances.update({i:False})
+            elif self.mutatedResistances.get(i) == False:
+                if random.random() < self.mutProb:
+                    self.mutatedResistances.update({i:True})
         
         try:
             if self.isDrugResistant == True:
-                raise NoChildException
-            elif random.random() <= self.rep_probability:
-                return ResistantVirus(self.getMaxBirthProb(), self.getClearProb(),self.getResistances, self.getMutProb)
+                if random.random() <= self.rep_probability:
+                    return ResistantVirus(self.getMaxBirthProb(), self.getClearProb(),self.mutatedResistances, self.getMutProb())
         except:
             raise NoChildException
             
 virus = ResistantVirus(1.0, 0.0, {}, 0.0)
 virus = ResistantVirus(0.0, 1.0, {"drug1":True, "drug2":False}, 0.0)
+child = virus.reproduce(0, ["drug2"])
+print(child)
+child = virus.reproduce(0, ["drug1"])
+print(child)
+virus = ResistantVirus(1.0, 0.0, {'drug1':True, 'drug2': True, 'drug3': True, 'drug4': True, 'drug5': True, 'drug6': True}, 0.5)
+v1 = virus.reproduce(0, [])
+v2 = virus.reproduce(0, [])
+v3 = virus.reproduce(0, [])
+v4 = virus.reproduce(0, [])
+v5 = virus.reproduce(0, [])
+virus.getResistances()
 
 class TreatedPatient(Patient):
     """
