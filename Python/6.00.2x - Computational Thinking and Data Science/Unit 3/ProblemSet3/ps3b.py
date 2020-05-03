@@ -421,19 +421,19 @@ class ResistantVirus(SimpleVirus):
         except:
             raise NoChildException
             
-virus = ResistantVirus(1.0, 0.0, {}, 0.0)
-virus = ResistantVirus(0.0, 1.0, {"drug1":True, "drug2":False}, 0.0)
-child = virus.reproduce(0, ["drug2"])
-print(child)
-child = virus.reproduce(0, ["drug1"])
-print(child)
-virus = ResistantVirus(1.0, 0.0, {'drug1':True, 'drug2': True, 'drug3': True, 'drug4': True, 'drug5': True, 'drug6': True}, 0.5)
-v1 = virus.reproduce(0, [])
-v2 = virus.reproduce(0, [])
-v3 = virus.reproduce(0, [])
-v4 = virus.reproduce(0, [])
-v5 = virus.reproduce(0, [])
-virus.getResistances()
+#virus = ResistantVirus(1.0, 0.0, {}, 0.0)
+#virus = ResistantVirus(0.0, 1.0, {"drug1":True, "drug2":False}, 0.0)
+#child = virus.reproduce(0, ["drug2"])
+#print(child)
+#child = virus.reproduce(0, ["drug1"])
+#print(child)
+#virus = ResistantVirus(1.0, 0.0, {'drug1':True, 'drug2': True, 'drug3': True, 'drug4': True, 'drug5': True, 'drug6': True}, 0.5)
+#v1 = virus.reproduce(0, [])
+#v2 = virus.reproduce(0, [])
+#v3 = virus.reproduce(0, [])
+#v4 = virus.reproduce(0, [])
+#v5 = virus.reproduce(0, [])
+#virus.getResistances()
 
 class TreatedPatient(Patient):
     """
@@ -453,8 +453,9 @@ class TreatedPatient(Patient):
         maxPop: The  maximum virus population for this patient (an integer)
         """
 
-        # TODO
-
+        Patient.__init__(self,viruses, maxPop)
+        self.drugsUsed = []
+        
 
     def addPrescription(self, newDrug):
         """
@@ -466,8 +467,9 @@ class TreatedPatient(Patient):
 
         postcondition: The list of drugs being administered to a patient is updated
         """
-
-        # TODO
+        
+        self.drugsUsed.append(newDrug)
+        
 
 
     def getPrescriptions(self):
@@ -478,7 +480,7 @@ class TreatedPatient(Patient):
         patient.
         """
 
-        # TODO
+        return self.drugsUsed
 
 
     def getResistPop(self, drugResist):
@@ -492,8 +494,24 @@ class TreatedPatient(Patient):
         returns: The population of viruses (an integer) with resistances to all
         drugs in the drugResist list.
         """
-
-        # TODO
+        
+        self.virusesFullyResistant = []
+        
+        self.virusPopulation = self.getViruses
+        
+        for virus in self.virusPopulation:
+            count = 0
+            for drug in drugResist:
+                if virus.isResistantTo(drug) == True:
+                    count += 1
+            if count == len(drugResist):
+                self.virusesFullyResistant.append(virus)
+                
+        return len(self.virusesFullyResistant)
+                    
+        
+        
+        
 
 
     def update(self):
@@ -517,7 +535,7 @@ class TreatedPatient(Patient):
         integer)
         """
 
-        # TODO
+        return len(self.viruses)
 
 
 
