@@ -1,9 +1,9 @@
 # Problem Set 3: Simulating the Spread of Disease and Virus Population Dynamics 
 
 import random
+random.seed(0) 
 import pylab
 from ps3b_precompiled_37 import *
-
 
 ''' 
 Begin helper code
@@ -94,18 +94,6 @@ class SimpleVirus(object):
         except:
             raise NoChildException
             
-
-#v1 = SimpleVirus(1.0, 0.0)
-#print(v1.doesClear()) # False
-#v1 = SimpleVirus(0.0, 0.0)
-#print(v1.doesClear()) # False
-#v1 = SimpleVirus(1.0, 1.0)
-#print(v1.doesClear()) # True
-#v1 = SimpleVirus(0.0, 1.0)
-#print(v1.doesClear()) # True
-#v1 = SimpleVirus(0.96, 0.72)
-#print(v1.reproduce(0.04))
-#print(v1.reproduce(0.4))
 
             
 class Patient(object):
@@ -199,27 +187,6 @@ class Patient(object):
 
         
         
-#viruses = [SimpleVirus(0.34, 0.94), SimpleVirus(0.57, 0.77), SimpleVirus(0.51, 0.06), SimpleVirus(0.59, 0.46), SimpleVirus(0.05, 0.2)]
-#P1 = Patient(viruses, 7)
-#print(P1.getTotalPop())
-#virus = SimpleVirus(1.0, 0.0)
-#patient = Patient([virus], 100)
-#print(patient.update())
-#print(patient.update())
-#print(patient.update())
-#print(patient.update())
-#print(patient.update())
-#print(patient.update())
-#print(patient.update())
-#print(patient.update())
-#print(patient.getTotalPop())
-#virus = SimpleVirus(1.0, 1.0)
-#patient = Patient([virus], 100)
-#print(patient.getTotalPop())
-#viruses = [SimpleVirus(0.46, 0.95), SimpleVirus(0.74, 0.72), SimpleVirus(0.39, 0.72)]
-#P1 = Patient(viruses, 9)
-#print(P1.getTotalPop())
-                
 #
 # PROBLEM 2
 #
@@ -268,13 +235,6 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
     pylab.show()
     
     #return trialsResults
-
-#simulationWithoutDrug(1, 10, 1.0, 0.0, 1)
-#simulationWithoutDrug(100, 200, 0.2, 0.8, 1)
-#simulationWithoutDrug(1, 90, 0.8, 0.1, 1)
-#simulationWithoutDrug(1, 90, 0.8, 0.1, 1)
-#simulationWithoutDrug(100, 1000, 0.1, 0.05, 5)
-
 
 #
 # PROBLEM 3
@@ -424,19 +384,6 @@ class ResistantVirus(SimpleVirus):
         except:
             raise NoChildException
             
-#virus = ResistantVirus(1.0, 0.0, {}, 0.0)
-#virus = ResistantVirus(0.0, 1.0, {"drug1":True, "drug2":False}, 0.0)
-#child = virus.reproduce(0, ["drug2"])
-#print(child)
-#child = virus.reproduce(0, ["drug1"])
-#print(child)
-#virus = ResistantVirus(1.0, 0.0, {'drug1':True, 'drug2': True, 'drug3': True, 'drug4': True, 'drug5': True, 'drug6': True}, 0.5)
-#v1 = virus.reproduce(0, [])
-#v2 = virus.reproduce(0, [])
-#v3 = virus.reproduce(0, [])
-#v4 = virus.reproduce(0, [])
-#v5 = virus.reproduce(0, [])
-#virus.getResistances()
 
 class TreatedPatient(Patient):
     """
@@ -508,19 +455,17 @@ class TreatedPatient(Patient):
         for virus in self.virusPopulation:
             count = 0
             for drug in drugResist:
-                if virus.isResistantTo(drug) == True:
-                    count += 1
+                try:
+                    if virus.isResistantTo(drug) == True:
+                        count += 1
+                except:
+                    pass
             if count == len(drugResist):
                 self.virusesFullyResistant.append(virus)
 
                 
         return len(self.virusesFullyResistant)
                     
-        
-        
-        
-
-
     def update(self):
         """
         Update the state of the virus population in this patient for a single
@@ -584,48 +529,6 @@ class TreatedPatient(Patient):
         
         return len(self.viruses)
 
-#virus = ResistantVirus(1.0, 0.0, {}, 0.0)
-#patient = TreatedPatient([virus], 100)
-#
-#virus1 = ResistantVirus(1.0, 0.0, {"drug1": True}, 0.0)
-#virus2 = ResistantVirus(1.0, 0.0, {"drug1": False, "drug2": True}, 0.0)
-#virus3 = ResistantVirus(1.0, 0.0, {"drug1": True, "drug2": True}, 0.0)
-#patient = TreatedPatient([virus1, virus2, virus3], 100)
-#print(patient.getResistPop(['drug1']))
-#print(patient.getResistPop(['drug2']))
-#print(patient.getResistPop(['drug1','drug2']))
-#print(patient.getResistPop(['drug3']))
-#print(patient.getResistPop(['drug1', 'drug3']))
-#print(patient.getResistPop(['drug1','drug2', 'drug3']))
-
-virus1 = ResistantVirus(1.0, 0.0, {"drug1": True}, 0.0)
-virus2 = ResistantVirus(1.0, 0.0, {"drug1": False}, 0.0)
-patient = TreatedPatient([virus1, virus2], 1000000)
-patient.addPrescription("drug1")
-patient.update()
-print(patient.getTotalPop())
-print(patient.getResistPop(['drug1']))
-print("-----")
-patient.update()
-print(patient.getTotalPop())
-
-print(patient.getResistPop(['drug1']))
-
-patient.update()
-print("-----")
-print(patient.getTotalPop())
-
-print(patient.getResistPop(['drug1']))
-patient.update()
-print("-----")
-print(patient.getTotalPop())
-
-print(patient.getResistPop(['drug1']))
-patient.update()
-print("-----")
-print(patient.getTotalPop())
-
-print(patient.getResistPop(['drug1']))
 
 #
 # PROBLEM 4
@@ -653,4 +556,51 @@ def simulationWithDrug(numViruses, maxPop, maxBirthProb, clearProb, resistances,
     
     """
 
-    # TODO
+    mainResults = []
+    resistantResults = []
+    
+    for i in range(numTrials):
+        
+        viruses = []
+        for i in range(numViruses):
+            viruses.append(ResistantVirus(maxBirthProb, clearProb, resistances, mutProb))
+    
+        patient = TreatedPatient(viruses,maxPop)
+    
+        trialsResults = []
+        trialsResultsResistant = []
+        
+        for i in range(150):
+            trialsResults.append(float(patient.update()))
+            trialsResultsResistant.append(float(patient.getResistPop(["guttagonol"])))
+
+        patient.addPrescription("guttagonol")
+       
+        for i in range(150):
+            trialsResults.append(float(patient.update()))
+            trialsResultsResistant.append(float(patient.getResistPop(["guttagonol"])))
+
+        mainResults.append(trialsResults)
+        resistantResults.append(trialsResultsResistant)
+    
+    #print(mainResults)
+    avgNormal = [sum(x)/numTrials for x in zip(*mainResults)]
+    avgResistant = [sum(x)/numTrials for x in zip(*resistantResults)]
+
+    
+    pylab.plot(avgNormal, label = "None Resistant Virus")
+    pylab.plot(avgResistant, label = "Resistant Virus")
+
+    pylab.title("ResistantVirus simulation")
+    pylab.xlabel("Time Steps")
+    pylab.ylabel("# viruses")
+    pylab.legend(loc = "best")
+    pylab.show()
+
+
+
+
+simulationWithDrug(1, 10, 1.0, 0.0, {}, 1.0, 5)
+simulationWithDrug(1, 20, 1.0, 0.0, {"guttagonol": True}, 1.0, 5)
+simulationWithDrug(75, 100, .8, 0.1, {"guttagonol": True}, 0.8, 1)
+
