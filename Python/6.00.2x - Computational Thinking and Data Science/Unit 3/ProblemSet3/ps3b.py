@@ -393,15 +393,18 @@ class ResistantVirus(SimpleVirus):
         self.isDrugResistant = True
         
         #check if virus can reproduse - if there is any Active drug that we are not resistant to we cannot reproduce
-        for i in activeDrugs:
-            if self.isResistantTo(i):
-                self.isDrugResistant = True
-            elif self.isResistantTo(i) == False:
-                self.isDrugResistant = False
-                break
-            else:
-                pass
-                
+        try:
+            for i in activeDrugs:
+                if self.isResistantTo(i):
+                    self.isDrugResistant = True
+                elif self.isResistantTo(i) == False:
+                    self.isDrugResistant = False
+                    break
+                else:
+                    pass
+        except:
+            pass
+        
         self.rep_probability = (self.getMaxBirthProb() * (1 - popDensity))
         
         self.mutatedResistances = self.getResistances().copy()
@@ -468,7 +471,10 @@ class TreatedPatient(Patient):
         postcondition: The list of drugs being administered to a patient is updated
         """
         
-        self.drugsUsed.append(newDrug)
+        if newDrug in self.drugsUsed:
+            pass
+        else:
+            self.drugsUsed.append(newDrug)
         
 
 
@@ -497,8 +503,8 @@ class TreatedPatient(Patient):
         
         self.virusesFullyResistant = []
         
-        self.virusPopulation = self.getViruses
-        
+        self.virusPopulation = self.getViruses()
+    
         for virus in self.virusPopulation:
             count = 0
             for drug in drugResist:
@@ -506,6 +512,7 @@ class TreatedPatient(Patient):
                     count += 1
             if count == len(drugResist):
                 self.virusesFullyResistant.append(virus)
+
                 
         return len(self.virusesFullyResistant)
                     
@@ -534,10 +541,91 @@ class TreatedPatient(Patient):
         returns: The total virus population at the end of the update (an
         integer)
         """
+        
+#       Determine whether each virus particle survives and updates the list
+#       of virus particles accordingly.    
+#
+        self.viruses = list(filter(None.__ne__, self.viruses[:]))
+        for virus in self.viruses[:]:
+            if virus.doesClear():
+                self.viruses.remove(virus)
+                
+                
+        self.virusesFullyResistant = []
+        
+        self.patientDrugs = self.getPrescriptions()
+                
+        for virus in self.viruses[:]:
+            count = 0
+            for drug in self.patientDrugs[:]:
+                if virus.isResistantTo(drug) == True:
+                    count += 1
+            if count == len(self.patientDrugs):
+                self.virusesFullyResistant.append(virus)
+                
+        
+#       The current population density is calculated. This population density
+#       value is used until the next call to update() 
 
+        self.densityPopulation = len(self.viruses) / self.getMaxPop()
+        
+#        - Based on this value of population density, determine whether each 
+#          virus particle should reproduce and add offspring virus particles to 
+#          the list of viruses in this patient.
+#          The list of drugs being administered should be accounted for in the
+#          determination of whether each virus particle reproduces.             
+
+        if self.densityPopulation <= 1:
+            for virus in self.virusesFullyResistant[:]:
+                try:
+                    self.viruses.append(virus.reproduce(self.densityPopulation,self.getPrescriptions))
+                except NoChildException:
+                    pass
+        
         return len(self.viruses)
 
+#virus = ResistantVirus(1.0, 0.0, {}, 0.0)
+#patient = TreatedPatient([virus], 100)
+#
+#virus1 = ResistantVirus(1.0, 0.0, {"drug1": True}, 0.0)
+#virus2 = ResistantVirus(1.0, 0.0, {"drug1": False, "drug2": True}, 0.0)
+#virus3 = ResistantVirus(1.0, 0.0, {"drug1": True, "drug2": True}, 0.0)
+#patient = TreatedPatient([virus1, virus2, virus3], 100)
+#print(patient.getResistPop(['drug1']))
+#print(patient.getResistPop(['drug2']))
+#print(patient.getResistPop(['drug1','drug2']))
+#print(patient.getResistPop(['drug3']))
+#print(patient.getResistPop(['drug1', 'drug3']))
+#print(patient.getResistPop(['drug1','drug2', 'drug3']))
 
+virus1 = ResistantVirus(1.0, 0.0, {"drug1": True}, 0.0)
+virus2 = ResistantVirus(1.0, 0.0, {"drug1": False}, 0.0)
+patient = TreatedPatient([virus1, virus2], 1000000)
+patient.addPrescription("drug1")
+patient.update()
+print(patient.getTotalPop())
+print(patient.getResistPop(['drug1']))
+print("-----")
+patient.update()
+print(patient.getTotalPop())
+
+print(patient.getResistPop(['drug1']))
+
+patient.update()
+print("-----")
+print(patient.getTotalPop())
+
+print(patient.getResistPop(['drug1']))
+patient.update()
+print("-----")
+print(patient.getTotalPop())
+
+print(patient.getResistPop(['drug1']))
+patient.update()
+print("-----")
+print(patient.getTotalPop())
+
+print(patient.getResistPop(['drug1']))
 
 #
 # PROBLEM 4
