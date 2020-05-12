@@ -153,8 +153,12 @@ def r_squared(y, estimated):
     Returns:
         a float for the R-squared error term
     """
-    # TODO
-    pass
+    
+    estimated = np.array(estimated)
+    
+    error = ((estimated - y)**2).sum()
+    meanError = error/len(y)
+    return 1 - (meanError/np.var(y))
 
 # Problem 3
 def evaluate_models_on_training(x, y, models):
@@ -178,8 +182,18 @@ def evaluate_models_on_training(x, y, models):
     Returns:
         None
     """
-    # TODO
-    pass
+    xVals, yVals = x,y
+    xVals = np.array(xVals)
+    yVals = np.array(yVals)
+    
+    print(models)
+    pylab.plot(xVals, yVals, 'o', label = 'Data')
+    for i in range(len(models)):
+        rSquare = r_squared(yVals, i)
+        
+    pylab.legend(loc = 'best')
+    pylab.title("Models")
+
 
 
 ### Begining of program
@@ -190,13 +204,9 @@ y = []
 x = INTERVAL_1
 for year in INTERVAL_1:
     y.append(raw_data.get_daily_temp('BOSTON', 1, 10, year))
-models = generate_models(x, y, [1,2])
+models = generate_models(x, y, [1])
+evaluate_models_on_training(x, y, models)
 
-print(generate_models([1961, 1962, 1963],[4.4,5.5,6.6],[1, 2]))
-
-#evaluate_models_on_training(x, y, models)
-#
-#
 ## Problem 4: FILL IN MISSING CODE TO GENERATE y VALUES
 #x1 = INTERVAL_1
 #x2 = INTERVAL_2
