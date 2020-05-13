@@ -182,18 +182,22 @@ def evaluate_models_on_training(x, y, models):
     Returns:
         None
     """
+    
     xVals, yVals = x,y
     xVals = np.array(xVals)
     yVals = np.array(yVals)
-    
-    print(models)
-    pylab.plot(xVals, yVals, 'o', label = 'Data')
-    for i in range(len(models)):
-        rSquare = r_squared(yVals, i)
-        
-    pylab.legend(loc = 'best')
-    pylab.title("Models")
 
+    
+    pylab.plot(xVals, yVals, 'o', label = 'Data') #create base plot
+    for i in range(len(models)):
+        estYVals = pylab.polyval(models[i], xVals) #create line of estimates
+        error = r_squared(yVals, estYVals) # count R2
+        pylab.plot(xVals, estYVals,
+                   label = 'Fit of degree '\
+                   + str(i)\
+                   + ', R2 = ' + str(round(error, 3)))
+    pylab.legend(loc = 'best')
+    pylab.title("Evaluate Model")
 
 
 ### Begining of program
@@ -206,11 +210,13 @@ for year in INTERVAL_1:
     y.append(raw_data.get_daily_temp('BOSTON', 1, 10, year))
 models = generate_models(x, y, [1])
 evaluate_models_on_training(x, y, models)
+pylab.figure()
 
-## Problem 4: FILL IN MISSING CODE TO GENERATE y VALUES
-#x1 = INTERVAL_1
-#x2 = INTERVAL_2
-#y = []
-## MISSING LINES
-#models = generate_models(x, y, [1])    
-#evaluate_models_on_training(x, y, models)
+# Problem 4: FILL IN MISSING CODE TO GENERATE y VALUES
+x1 = INTERVAL_1
+x2 = INTERVAL_2
+y = []
+for year in INTERVAL_1:
+    y.append(np.mean(raw_data.get_yearly_temp('BOSTON', year)))
+models = generate_models(x, y, [1])    
+evaluate_models_on_training(x, y, models)
