@@ -190,7 +190,7 @@ def evaluate_models_on_training(x, y, models):
     
     pylab.plot(xVals, yVals, 'o', label = 'Data') #create base plot
     for i in range(len(models)):
-        estYVals = pylab.polyval(models[i], xVals) #create line of estimates
+        estYVals = pylab.polyval(models[i], xVals) #create values of estimates
         error = r_squared(yVals, estYVals) # count R2
         pylab.plot(xVals, estYVals,
                    label = 'Fit of degree '\
