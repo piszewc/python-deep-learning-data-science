@@ -31,3 +31,7 @@ Kaggle/TensorFlow_2_Question_Answering/input/
 Kaggle/TensorFlow_2_Question_Answering/kaggle/
 Kaggle/TensorFlow_2_Question_Answering/outdir/
 Kaggle/datasets/CORD-19-research-challenge
+Kaggle/datasets/Walmart/calendar.csv
+Kaggle/datasets/Walmart/sales_train_validation.csv/sales_train_validation.csv
+Kaggle/datasets/Walmart/sample_submission.csv/sample_submission.csv
+Kaggle/datasets/Walmart/sell_prices.csv/sell_prices.csv
