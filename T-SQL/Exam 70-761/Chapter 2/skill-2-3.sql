@@ -258,3 +258,43 @@ querying the distinct values from the data. You can find an example for building
 executing a pivot query dynamically at http://sqlmag.com/sql-server/logical-queryprocessing-clause-and-pivot.
 
 '''
+
+
+---- Using Window Functions
+
+'''
+Window aggregate functions are the same as the group aggregate functions (for example,
+SUM, COUNT, AVG, MIN, and MAX), except window aggregate functions are applied to a
+window of rows defined by the OVER clause.
+'''
+
+SELECT
+    custid,
+    orderid,
+    val,
+    SUM(val) OVER(PARTITION BY custid) AS custtotal,
+    SUM(val) OVER() AS grandtotal
+FROM
+    Sales.OrderValues;
+
+'''
+You can mix detail elements and windowed aggregates in the same expression. For example, the following query computes for each order the percent of the current order value
+out of the customer total, and also the percent of the grand total:
+'''
+
+SELECT
+    custid,
+    orderid,
+    val,
+    CAST(
+        100.0 * val / SUM(val) OVER(PARTITION BY custid) AS NUMERIC(5, 2)
+    ) AS pctcust,
+    CAST(100.0 * val / SUM(val) OVER() AS NUMERIC(5, 2)) AS pcttotal
+FROM
+    Sales.OrderValues;
+
+
+'''
+You can mix detail elements and windowed aggregates in the same expression. For example, the following query computes for each order the percent of the current order value
+out of the customer total, and also the percent of the grand total:
+'''
