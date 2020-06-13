@@ -184,7 +184,7 @@ FROM
         )
     ) AS P;
 
-'''
+/*
 This recommended general form is made of the following elements:
 ■ You define a table expression (like the one named PivotData) that returns the three
 elements that are involved in pivoting, which in this example are custid, shipperid
@@ -201,7 +201,7 @@ column (in this example, shipper IDs) become column names in the result table. T
 a column identifier is irregular, it has to be delimited. Because shipper IDs are integers,
 they have to be delimited: [1],[2],[3]
 
-'''
+*/
 
 WITH PivotData AS (
     SELECT
@@ -240,7 +240,7 @@ SELECT
 FROM
     PivotData PIVOT(SUM(freight) FOR shipperid IN ([1], [2], [3])) AS P;
 
-'''
+/*
 Limitations:
 The aggregation and spreading elements cannot directly be results of expressions;
 instead, they must be column names from the queried table. You can, however, apply
@@ -257,7 +257,7 @@ ahead, you can use dynamic SQL to construct and execute the query string after
 querying the distinct values from the data. You can find an example for building and
 executing a pivot query dynamically at http://sqlmag.com/sql-server/logical-queryprocessing-clause-and-pivot.
 
-'''
+*/
 
 
 ---- Using Window Functions
@@ -298,3 +298,122 @@ FROM
 You can mix detail elements and windowed aggregates in the same expression. For example, the following query computes for each order the percent of the current order value
 out of the customer total, and also the percent of the grand total:
 '''
+
+'''
+In the window frame clause, you indicate the window frame unit (ROWS or RANGE) and
+the window frame extent (the delimiters). With the ROWS window frame unit, you can indicate
+the delimiters as one of three options:
+■ UNBOUNDED PRECEDING or FOLLOWING, meaning the beginning or end of the
+partition, respectively.
+■ CURRENT ROW, obviously representing the current row.
+■ <n> ROWS PRECEDING or FOLLOWING, meaning n rows before or after the current,
+respectively.
+'''
+
+SELECT
+    custid,
+    orderid,
+    orderdate,
+    val,
+    SUM(val) OVER(
+        PARTITION BY custid
+        ORDER BY
+            orderdate,
+            orderid ROWS BETWEEN UNBOUNDED PRECEDING
+            AND CURRENT ROW
+    ) AS runningtotal
+FROM
+    Sales.OrderValues;
+
+
+/*
+Suppose that you need to filter the result of the last query, returning only those rows
+where the running total is less than 1,000.00. The following code achieves this by defining a
+common table expression (CTE) based on the previous query and then doing the filtering in
+the outer query:
+*/
+
+WITH RunningTotals AS (
+    SELECT
+        custid,
+        orderid,
+        orderdate,
+        val,
+        SUM(val) OVER(
+            PARTITION BY custid
+            ORDER BY
+                orderdate,
+                orderid ROWS BETWEEN UNBOUNDED PRECEDING
+                AND CURRENT ROW
+        ) AS runningtotal
+    FROM
+        Sales.OrderValues
+)
+SELECT
+    *
+FROM
+    RunningTotals
+WHERE
+    runningtotal < 1000.00;
+
+
+--- Window Ranking Functions
+
+SELECT custid, orderid, val,
+    ROW_NUMBER() OVER(ORDER BY val) AS rownum,
+    RANK() OVER(ORDER BY val) AS rnk,
+    DENSE_RANK() OVER(ORDER BY val) AS densernk,
+    NTILE(100) OVER(ORDER BY val) AS ntile100
+FROM Sales.OrderValues;
+
+/*
+
+Window Offset Functions
+Window offset functions return an element from a single row that is in a given offset from the
+current row in the window partition, or from the first or last row in the window frame. T-SQL
+supports the following window offset functions: LAG, LEAD, FIRST_VALUE, and LAST_VALUE.
+The LAG and LEAD functions rely on an offset with respect to the current row, and the FIRST_
+VALUE and LAST_VALUE functions operate on the first or last row in the frame, respectively.
+The LAG and LEAD functions support window partition and ordering clauses. They don’t
+support a window frame clause. The LAG function returns an element from the row in the
+current partition that is a requested number of rows before the current row (based on the
+window ordering), with 1 assumed as the default offset. The LEAD function returns an element from the row that is in the requested offset after the current row.
+As an example, the following query uses the LAG and LEAD functions to return along with
+each order the value of the previous customer’s order, in addition to the value from the next
+customer’s order:
+
+*/
+
+SELECT custid, orderid, orderdate, val,
+    LAG(val) OVER(PARTITION BY custid
+        ORDER BY orderdate, orderid) AS prev_val,
+    LEAD(val) OVER(PARTITION BY custid
+        ORDER BY orderdate, orderid) AS next_val
+FROM Sales.OrderValues;
+
+/*
+
+Because an explicit offset wasn’t specified, both functions relied on the default offset of
+1. If you want a different offset than 1, you specify it as the second argument, as in LAG(val,
+3). Notice that if a row does not exist in the requested offset, the function returns a NULL by
+default. If you want to return a different value in such a case, specify it as the third argument,
+as in LAG(val, 3, 0).
+
+The FIRST_VALUE and LAST_VALUE functions return a value expression from the first or last
+rows in the window frame, respectively. Naturally, the functions support window partition,
+order, and frame clauses. As an example, the following query returns along with each order
+the values of the customer’s first and last orders:
+
+*/
+
+SELECT custid, orderid, orderdate, val,
+    FIRST_VALUE(val) OVER(PARTITION BY custid
+        ORDER BY orderdate, orderid
+        ROWS BETWEEN UNBOUNDED PRECEDING
+            AND CURRENT ROW) AS first_val,
+LAST_VALUE(val) OVER(PARTITION BY custid
+        ORDER BY orderdate, orderid
+        ROWS BETWEEN CURRENT ROW
+            AND UNBOUNDED FOLLOWING) AS last_val
+FROM Sales.OrderValues
+ORDER BY custid, orderdate, orderid;
