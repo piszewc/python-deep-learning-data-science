@@ -171,7 +171,8 @@ When a leading wildcard is used, especially in combination with an ending wildca
 Consider this query to pull cities beginning with ‘Char’:
 
 ```
-SELECT City FROM CustomersWHERE City LIKE ‘%Char%’
+SELECT City FROM Customers
+WHERE City LIKE ‘%Char%’
 ```
 
 This query will pull the expected results of **Char**leston, **Char**lotte, and **Char**lton. However, it will also pull unexpected results, such as Cape **Char**les, Crab Or**char**d, and **Rich**ardson.
@@ -179,7 +180,8 @@ This query will pull the expected results of **Char**leston, **Char**lotte, and 
 A more efficient query would be:
 
 ```
-SELECT City FROM CustomersWHERE City LIKE ‘Char%’
+SELECT City FROM Customers
+WHERE City LIKE ‘Char%’
 ```
 
 This query will pull only the expected results of **Char**leston, **Char**lotte, and **Char**lton.
