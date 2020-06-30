@@ -38,7 +38,7 @@
 
 
 
-# SQL Practices
+## SQL Practices
 
 ## 1. Define business requirements first
 
