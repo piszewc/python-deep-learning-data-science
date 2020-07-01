@@ -689,5 +689,6 @@ FROM
     FROM mining_data
    WHERE client_id = 1000) T,
   TABLE(T.nset) Q
-ORDER BY 2 DESC;  
+ORDER BY 2 DESC; 
+ 
 -- A cluster is group tables that distribute the corresponding data blocks i.e. all the tables are actually put together. For example, EMPLOYEE and DEPARTMENT tables are connected to the DNO column. If you cluster them, it will actually store all rows in the same data blocks.
