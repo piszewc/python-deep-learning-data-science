@@ -42,3 +42,4 @@ Kaggle/.ipynb_checkpoints/M5 Forecasting Accuracy-checkpoint.ipynb
 Kaggle/datasets/Lending Club Loan Data/loan.csv
 Kaggle/Lending Club Loan Data.ipynb
 Kaggle/datasets/Lending Club Loan Data/database.sqlite
+*.gz
